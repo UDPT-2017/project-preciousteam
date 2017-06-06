@@ -1,0 +1,28 @@
+{
+  "name": "project-preciousteam",
+  "version": "1.0.0",
+  "description": "**Name of your app** là repository cho đồ án nhóm. Nhóm tối đa 4 thành viên.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UDPT-2017/project-preciousteam.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UDPT-2017/project-preciousteam/issues"
+  },
+  "homepage": "https://github.com/UDPT-2017/project-preciousteam#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bower": "^1.8.0",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "nodemon": "^1.11.0"
+  }
+}

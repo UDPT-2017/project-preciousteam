@@ -1,0 +1,21 @@
+{
+  "name": "project-preciousteam",
+  "description": "**Name of your app** là repository cho đồ án nhóm. Nhóm tối đa 4 thành viên.",
+  "main": "index.js",
+  "authors": [
+    "thikhin96 <nghoangthi1@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/UDPT-2017/project-preciousteam",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  }
+}
