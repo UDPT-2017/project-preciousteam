@@ -2349,3 +2349,72 @@ td.add-check a {
     background-size: 542px;
 }
 }
+
+.comments-info {
+  margin: 3em 0 0;
+  border:1px dashed #F67777;
+  padding: 1em;
+}
+
+.comments-info p {
+	color: #858d94;
+	margin: 1em 0 0 0;
+	text-align: left;
+	font-size: 13px;
+	line-height: 1.8;
+	font-family: 'Lato', sans-serif;
+  font-style: normal;
+}
+.cmnt-icon-left {
+	padding-top: 64px;
+	float: left;
+	width:10%;
+}
+.cmnt-icon-right {
+	float: left;
+	margin-left: 2em;
+	width: 80%;
+}
+.cmnt-icon-right p {
+	color: #858d94;
+	margin: 0 0 .5em 0;
+	text-align: left;
+	font-size: 13px;
+	width: 100%;
+	font-family: 'Lato', sans-serif;
+  font-style: normal;
+}
+
+.cmnt-icon-right p a {
+  color: #307D34;
+  text-decoration:none;
+}
+.cmnt-icon-right p a:hover{
+  color: #858d94;
+  text-decoration:none;
+  transition:.5s all;
+}
+.comments h4{
+  color: #47443A;
+  font-size: 26px;
+  margin: 0;
+  padding: 2em 0em .5em;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  border-bottom: 1px dashed #E1DDD3;
+}
+.aliqua{
+	text-align:right;
+}
+.aliqua a{
+	font-size: 13px;
+	color: #307D34;
+	font-family: 'Lato', sans-serif;
+	font-style: italic;
+	font-weight: 600;
+	text-decoration:none;
+}
+.aliqua a:hover{
+	text-decoration:none;
+	color:#000;
+}
