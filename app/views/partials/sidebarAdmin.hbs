@@ -1,0 +1,35 @@
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+        <li class="{{active_dashboard}}">
+            <a href="homeAdmin"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+        </li>
+
+        <li class="{{active_staffmanagement}}" >
+            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-user-circle"></i> Staff Management <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="demo" class="collapse">
+                <li>
+                    <a href="staffList" ><i class="fa fa-file-text-o"></i>  Staff List</a>
+                </li>
+                <li>
+                    <a href="addStaff"><i class="fa fa-user-plus"></i>  Add staff</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="{{active_customermanagement}}">
+            <a href="customers" ><i class="fa fa-users"></i> Customer Management</a>
+        </li>
+
+        <li  class="{{active_postmanagement}}">
+            <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-file-text-o"></i>  Post Management <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="demo1" class="collapse">
+                <li>
+                    <a href="#" >All Posts</a>
+                </li>
+                <li>
+                    <a href="#" >Uncheck Post</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
