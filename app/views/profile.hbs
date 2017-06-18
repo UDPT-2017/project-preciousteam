@@ -1,0 +1,58 @@
+<div class="container">
+	{{> user}}
+	<div class ="cart-user">
+		<div class="container">
+
+		<div class="info">
+			<h2 class="usertitle">User information</h2>
+			<form action="#" method="post">
+			<div class="col-md-8 login-do">
+				<img class="profilepic" height="100" width="100" id="profile" src="" alt="profile-image"/>
+				<input class="profilebtn" id="image" type="file" name="profile_photo" placeholder="Photo" required="">
+
+
+			</div>
+			<div class="col-md-8 login-do">
+				<p>Name</p>
+				<div class="login-mail">
+					<input type="text" value="{{name}}" required="" disabled="true">
+					<i  class="glyphicon glyphicon-user"></i>
+				</div>
+				<p>Phone number</p>
+				<div class="login-mail">
+
+					<input type="text" value="{{phone}}" required="" disabled="true">
+					<i  class="glyphicon glyphicon-phone"></i>
+				</div>
+				<p>Email</p>
+				<div class="login-mail">
+					
+					<input type="text" value="{{email}}" required="" disabled="true">
+					<i  class="glyphicon glyphicon-envelope"></i>
+				</div>
+				<p>Password</p>
+				<div class="login-mail">
+					
+					<input type="password" value="{{password}}" required="" disabled="true">
+					<i class="glyphicon glyphicon-lock"></i>
+				</div>
+				<label class="hvr-skew-backward">
+					<input type="submit" value="Change"  id="smit">
+				</label>
+				<label class="hvr-skew-backward">
+					<input type="submit" value="Submit"  id="smit">
+				</label>
+			</div>
+
+			
+			<div class="clearfix"> </div>
+			</form>
+		</div>
+
+	</div>
+	</div>
+</div>
+
+
+
+

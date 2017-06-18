@@ -5,19 +5,19 @@ var passport = require('passport');
 module.exports = function(passport) {
     passport.serializeUser(function(user, done) {
     done(null, user.userid);
-});
-
-passport.deserializeUser(function(id, done) {
-    User.findUser(id, function(err, user){
-        if (err !== null)
-        {
-            console.log(err);
-        }
-        else
-        {
-            done(null, user[0]);
-        }
     });
+
+    passport.deserializeUser(function(id, done) {
+        User.findUser(id, function(err, user){
+            if (err !== null)
+            {
+                console.log(err);
+            }
+            else
+            {
+                done(null, user[0]);
+            }
+        });
 });
 
 passport.use('local-login', new LocalStrategy(  {

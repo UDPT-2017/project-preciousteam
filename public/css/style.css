@@ -988,6 +988,12 @@ ul.product-qty {
 .tab-content {
     padding-left: 0px;
 }
+
+.fixedactive {
+	background:#F67777 !important;
+	color:#fff;
+}
+
 .facts p {
     color: #B3B3B3;
     font-size: 0.9em;
@@ -1348,6 +1354,10 @@ a.at-in {
 	padding:0.8em 0 ;
 }
 /*--footer--*/
+.footer {
+	margin-top:100px;
+}
+
 .footer-middle{
 	background:#1F1F1F;
 	padding:4em 0;
@@ -2417,4 +2427,174 @@ td.add-check a {
 .aliqua a:hover{
 	text-decoration:none;
 	color:#000;
+}
+
+.mail-profile {
+    background: #2b303a !important;
+    padding: 1em 1em;
+}
+.mail-profile {
+    background: #FC8213;
+    padding: 1em 1em;
+    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.15);
+}
+.mail-pic {
+    margin-top: 1em;
+    float: left;
+    width: 20%;
+    margin-left: 10%;
+}
+.mailer-name {
+    float: left;
+    width: 70%;
+    margin-top: 1.4em;
+}
+.mailer-name h5 {
+    font-size: 1.1em;
+    margin-bottom: 0.3em;
+    font-family: 'Carrois Gothic', sans-serif;
+}
+.mailer-name h5 a{
+  color: #fff;
+}
+.mailer-name h6 {
+    font-size: 0.8em;
+    margin-bottom: 0.3em;
+    font-family: 'Carrois Gothic', sans-serif;
+}
+.mailer-name h6 a{
+  color: #fff;
+}
+.mailer-name h6 a:hover {
+    color: #000;
+}
+.compose-block {
+    padding: 1.5em 1em;
+    text-align: center;
+    background:#DEDEDE;
+}
+.compose-block a {
+    font-size: 1em;
+    color: #fff;
+    background: #33b5e5;
+    padding: 0.5em 1.5em;
+    border-radius:3px;
+    display: inline-block;
+}
+.compose-block a:hover{
+  background:#337AB7;
+}
+.compose-bottom ul {
+    list-style: none;
+    padding: 0px;
+}
+.compose-bottom ul li a{
+    padding: 1em 1em;
+    background: #EAEAEA;
+    display: block;
+    font-size: 1em;
+    color: #797878;
+    font-family: 'Carrois Gothic', sans-serif;
+}
+.compose-bottom ul li a.hilate{
+  background:#C5C5C5;
+}
+.compose-bottom ul li a:hover{
+  background:#C5C5C5;
+}
+.compose-bottom i.fa.fa-inbox {
+    font-size: 1.1em;
+    margin-right: 12px;
+    color: #797878;
+}
+.compose-bottom i.fa.fa-envelope-o{
+   font-size: 1.1em;
+    margin-right: 12px;
+    color: #797878;
+}
+.compose-bottom i.fa.fa-star-o {
+    font-size: 1.1em;
+    margin-right: 12px;
+    color: #797878;
+}
+.compose-bottom i.fa.fa-pencil-square-o {
+    font-size: 1.1em;
+    margin-right: 12px;
+    color: #797878;
+}
+.compose-bottom i.fa.fa-trash-o {
+    font-size: 1.1em;
+    margin-right: 12px;
+    color: #797878;
+}
+ul.nav.tabs li a span {
+    background: #ff6961;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 0.9em;
+    text-align: center;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    float: right;
+}
+
+ul.nav.tabs li a span {
+    background: #ff6961;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 0.9em;
+    text-align: center;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    float: right;
+}
+
+.compose {
+	margin-top: 50px;
+}
+
+.usernav {
+	width: 100% !important;
+}
+
+.cart-user {
+	margin-top:50px;
+}
+
+.inner-block {
+    padding: 8em 2em 4em 2em;
+    background: #fafafa;
+}
+
+.total-price{
+	text-align: right;
+    color: #000000;
+    font-size: 1.4em;
+    font-weight: 400;
+    font-family: 'Ubuntu-Regular';
+}
+
+.info{
+	padding: 1em 0 0;
+}
+
+.profilebtn {
+	float: left;
+    width: 60%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    margin-left: 20px;
+}
+
+.profilepic {
+	float: left;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 30px;
+}
+
+.usertitle{
+	padding-bottom: 20px;
 }

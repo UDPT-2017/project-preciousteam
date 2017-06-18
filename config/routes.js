@@ -19,6 +19,10 @@ module.exports = function(app) {
 			res.end('fail');});
 	app.get('/register', controllers.register.index);
 
+	app.get('/index', controllers.user.index);
+	app.get('/profile', controllers.user.profile);
+	app.get('/cart', controllers.user.cart);
+
 	app.get('/homeAdmin', controllers.admin.index);
 	app.get('/addStaff', controllers.admin.addStaff);
 	app.get('/staffList', controllers.admin.staffList);
@@ -26,5 +30,6 @@ module.exports = function(app) {
 
 	app.get('/homeStaff', controllers.staff.index);
 	app.get('/customers', controllers.staff.customers);
+
 
 };

@@ -1,0 +1,28 @@
+    <div class="col-md-4 col-12 compose">    	 
+    	 
+    	 	<div class="mail-profile">
+    	 		<div class="mail-pic">
+    	 			<a href="#"><img src="images/User.png" alt=""></a>
+    	 		</div>
+    	 		<div class="mailer-name">
+    	 				<h5><a href="#">{{user.name}}</a></h5>
+    	 			     <h6><a href="mailto:{{user.email}}">{{user.email}}</a></h6>
+    	 		</div>
+    	 	    <div class="clearfix"> </div>
+    	 	</div>
+    	 	<div class="compose-block">
+    	 		<a href="new_mes">New post</a>
+    	 	</div>
+    	 	<div class="compose-bottom">
+    	 		<nav class="nav-sidebar usernav">
+					<ul class="nav tabs">
+			          <li class="{{active_profile}}"><a href="profile"><i class="fa fa-inbox"></i>Profile<div class="clearfix"></div></a></li>
+			          <li class="{{active_post}}"><a href="posts"><i class="fa fa-envelope-o"></i>Posts</a></li>
+			          <li class="{{active_cart}}"><a href="cart"><i class="fa fa-users"></i>Cart<div class="clearfix"></div></a></li>
+                      <li class="{{active_discount}}"><a href="addDiscount"><i class="fa fa-users"></i>Add Promotion<div class="clearfix"></div></a></li>
+					</ul>
+					</ul>
+				</nav>
+    	 	</div>
+        </div>
+
