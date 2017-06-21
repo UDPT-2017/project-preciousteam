@@ -15,6 +15,16 @@ const userController  = {
 		res.render('user-cart', {
 			active_cart: "active"
 		});
+	},
+	posts: function(req, res){
+		res.render('posts', {
+			active_post: "active"
+		});
+	},
+	createpost: function(req, res){
+		res.render('createpost', {
+			
+		});
 	}
 };
 

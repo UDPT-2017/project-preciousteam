@@ -1042,12 +1042,13 @@ nav.nav-sidebar {
 	color: #F67777;
     font-size: 1em;
 }
-.login-mail input[type="text"],.login-mail input[type="password"]{
+.login-mail input[type="text"],.login-mail input[type="password"], .login-mail input[type="number"], .login-mail textarea{
 	border: none;
 	outline:none;
 	font-size: 0.9em;
     color: #999;
     width: 95%;
+    resize: none;
 }
 .login-do input[type="submit"]{
 	border: none;
@@ -1713,7 +1714,6 @@ td {
 
 .nav > li > a{
 	padding: 1.2em 3em !important;
-	    width: 171px;
 }
 .navbar-nav {
     margin: 0;
@@ -2597,4 +2597,59 @@ ul.nav.tabs li a span {
 
 .usertitle{
 	padding-bottom: 20px;
+}
+
+.mailbox-content {
+    padding: 1em 1em;
+    background: #fff;
+    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.15);
+}
+
+.tab-content {
+    padding: 1em;
+}
+.tab-content p {
+    font-size: 1em;
+    color: #000;
+    line-height: 1.8em;
+}
+
+.float-left {
+    float: left;
+    width: 40%;
+}
+.float-right {
+    float: right;
+    width: 50%;
+}
+
+table.table.tab-border {
+    border: 1px solid #D4D4D4;
+}
+.mail-toolbar.clearfix {
+    padding: 1em 1em;
+}
+
+
+.des {
+	height: 200px;
+}
+
+.proInfo {
+	margin-top: 0.8em;
+	margin-bottom: 2em;
+}
+
+button {
+	 border: none;
+    outline: none;
+    font-size: 1em;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background: none;
+}
+
+.right {
+	float: right;
+	margin-left: 20px;
 }

@@ -1,0 +1,73 @@
+<div class="container">
+	{{> user}}
+	<div class="col-md-8 col-sm-12 col-xs-12 mailbox-content  tab-content tab-content-in compose">
+    <div class="tab-pane active text-style table-responsive " id="tab1">
+	 	<div class="mailbox-border">
+	               <div class="mail-toolbar clearfix">
+				    <div class="float-left">
+				        <div class="btn btn_1 btn-default mrg5R">
+				           <i class="fa fa-refresh"> </i>
+				        </div>
+				        <div class="clearfix"> </div>
+				    </div>
+				    <div class="float-right">
+	                       <div class="clearfix"> </div>
+	                 </div>
+	               </div>
+		</div>
+
+	    <table class=" table tab-border hover" id="inboxTable" cellspacing="0" width="100%">
+	    	<thead>
+	    		<tr>
+	                <th>Sender</th>
+	                <th>Content</th>
+	                <th>Time</th>
+            	</tr>
+	    	</thead>
+	        <tbody>
+	        {{#each messages}}
+	        	{{#if this.readtime}}
+	        		 <tr class="table-row">
+		                <td>
+		                	{{this.sender}}
+		                </td>
+		                <td>
+		                    {{this.content}}
+		                </td>
+		                <td>
+		                    {{this.senttime}}
+		                </td>
+		            </tr>
+	        	{{else}}
+				 <tr class="table-row highlight">
+	                <td>
+	                	{{this.sender}}
+	                </td>
+	                <td>
+	                    {{this.content}}
+	                </td>
+	                <td>
+	                    {{this.senttime}}
+	                </td>
+	            </tr>
+	            {{/if}}
+	        {{/each}}
+	        </tbody>
+	    </table>
+
+
+
+
+	</div>
+</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+    $('#inboxTable').DataTable({
+    	"lengthMenu": [[10, 12, 15, -1], [10, 12, 15, "All"]],
+    	"paging": true,
+    	"pagingType": "full_numbers"
+    });
+});
+</script>

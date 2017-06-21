@@ -18,10 +18,11 @@ module.exports = function(app) {
 		else
 			res.end('fail');});
 	app.get('/register', controllers.register.index);
-
 	app.get('/index', controllers.user.index);
 	app.get('/profile', controllers.user.profile);
 	app.get('/cart', controllers.user.cart);
+	app.get('/posts', controllers.user.posts);
+	app.get('/createpost', controllers.user.createpost);
 
 	app.get('/homeAdmin', controllers.admin.index);
 	app.get('/addStaff', controllers.admin.addStaff);
