@@ -8,14 +8,33 @@
 	</div>
 	<div class="header-top">
 		<div class="container">
-		<div class="col-sm-5 col-md-offset-2  header-login">
+			{{#if user}}
+				<div>
+					<a href="#"><i id="log-out" class="fa fa-sign-out" aria-hidden="true" style="
+				    float: right;
+				    color: white;
+				    margin-left: 5px;
+				    margin-top: 2px;
+				"></i></a>
+					<p style="
+					    color: white;
+					    float: right;
+					">{{user.name}}</p>
+					<i class="fa fa-user" aria-hidden="true" style="
+			    color: white;
+			    float: right;
+			" ></i>
+							</div>
+			{{else}}
+				<div class="col-sm-5 col-md-offset-2  header-login">
 					<ul >
 						<li><a href="/login">Login</a></li>
 						<li><a href="/register">Register</a></li>
 						<li><a href="/checkout">Checkout</a></li>
 					</ul>
 				</div>
-				<div class="clearfix"> </div>
+			{{/if}}	
+			<div class="clearfix"> </div>
 		</div>
 		</div>
 		
@@ -107,7 +126,8 @@
 			});
 																						
 			});
-		</script>		
+		</script>
+		<script src="js/logOut.js"> </script>		
 						<!----->
 			</div>
 			<div class="clearfix"></div>

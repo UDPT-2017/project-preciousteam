@@ -9,20 +9,24 @@ module.exports = function(app) {
 
 	app.get('/logIn', controllers.logIn.index);
 	app.post('/logIn', passport.authenticate('local-login'), function(req, res){
-        console.log(req.body);
+        
 		if (req.user != null)
         {
+        	console.log(req.body);
             req.app.locals.user = req.user;
-			res.end('/home');
+			res.send('/home');
         }
 		else
-			res.end('fail');});
+			res.send('fail');
+	});
 	app.get('/register', controllers.register.index);
 	app.get('/index', controllers.user.index);
 	app.get('/profile', controllers.user.profile);
 	app.get('/cart', controllers.user.cart);
 	app.get('/posts', controllers.user.posts);
 	app.get('/createpost', controllers.user.createpost);
+	app.post('/register', controllers.register.submit);
+	app.post('/logOut', controllers.logIn.logOut);
 
 	app.get('/homeAdmin', controllers.admin.index);
 	app.get('/addStaff', controllers.admin.addStaff);

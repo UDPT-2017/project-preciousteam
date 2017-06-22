@@ -1,29 +1,30 @@
+
 const userController  = {
 	index: function(req, res){
-		res.render('profile');
+		res.render('profile',{
+			user: req.user
+		});
 	},
 	profile: function(req, res){
 		res.render('profile', {
-			name: 'Nguyễn Hoàng Thi',
-			email: 'thikhin96@yahoo.com',
-			password: 'hoho',
-			phone: '092421441',
-			active_profile: 'active'
+			user: req.user
 		});
 	},
 	cart: function(req, res){
 		res.render('user-cart', {
-			active_cart: "active"
+			active_cart: "active",
+			user: req.user
 		});
 	},
 	posts: function(req, res){
 		res.render('posts', {
-			active_post: "active"
+			active_post: "active",
+			user: req.user
 		});
 	},
 	createpost: function(req, res){
 		res.render('createpost', {
-			
+			user: req.user
 		});
 	}
 };

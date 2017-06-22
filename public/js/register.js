@@ -1,19 +1,33 @@
-const FileReader = require('filereader');
-$(document).ready(function(){
-        $("#image").click(function(){
-        alert('huchuc');
-        //other uploading proccess [server side by ajax and form-data ]
-    });
+var errror = false;
+ $(document).ready(function() {
 
-    $("#image").change(function(){
-        alert('huchuc');
-        readURL(this);
-        //other uploading proccess [server side by ajax and form-data ]
-    });
-
-    $('#smit').click(function(){
-    alert('huchuc');
-});
+     $('#signUpForm').submit(function() {
+                $(this).ajaxSubmit({
+                    type: 'POST',
+                    data: {
+                        "name": $('#name').val(),
+                        "tel": $('#tel').val(),
+                        "email": $('#email').val(),
+                        "pass": $('#pass').val()
+                    },
+                    error: function(xhr) {
+                            status('Error: ' + xhr.status);
+                    },
+                    success: function(data) {
+                        //console.log(response)
+                        //$("#status").empty().text(response);
+                        if (data.localeCompare('1') === 0)
+                        {
+                            
+                        }
+                        else if (data.localeCompare('0') === 0)
+                        {
+                            //show 500 error   
+                        }
+                    }
+                });
+}) 
+ });
 
 function readURL(input) {
     alert('hehe');
@@ -33,5 +47,4 @@ function readURL(input) {
             reader.readAsDataURL(input.files[0]);
         }
     }
-}
 
