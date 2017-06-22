@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 var passport = require('passport');
 const bodyParser = require('body-parser');
+var multer = require('multer');
 
 
 module.exports = function(app)

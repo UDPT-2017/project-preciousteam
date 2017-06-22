@@ -1,4 +1,4 @@
-var config = {
+const config = {
   database: 'ProductSaleDB',
   user: 'postgres',
   password: '31101996',
