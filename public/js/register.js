@@ -1,7 +1,8 @@
 var errror = false;
  $(document).ready(function() {
 
-     $('#signUpForm').submit(function() {
+     $('#signUpForm').submit(function(e) {
+                 e.preventDefault();
                 $(this).ajaxSubmit({
                     type: 'POST',
                     data: {
@@ -14,18 +15,27 @@ var errror = false;
                             status('Error: ' + xhr.status);
                     },
                     success: function(data) {
-                        //console.log(response)
-                        //$("#status").empty().text(response);
                         if (data.localeCompare('1') === 0)
                         {
-                            
+                            window.location = '/activateAnnounce';
                         }
                         else if (data.localeCompare('0') === 0)
                         {
                             //show 500 error   
                         }
+                        else if (data.localeCompare('-1') === 0)
+                        {
+                             swal({
+                            title: "Oops!!",
+                            text: "Email has been used!!",
+                            type: "error",
+                            confirmButtonText: "Try again",
+                            confirmButtonColor: "#DD6B55"
+                            });
+                        }
                     }
                 });
+                return false;
 }) 
  });
 

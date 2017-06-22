@@ -1,7 +1,11 @@
 <div class="container">
 		<div class="four">
-		<h3>404</h3>
-		<p>Sorry! Evidently the document you were looking for has either been moved or no longer exist.</p>
-		<a href="/home" class="hvr-skew-backward">Back To Home</a>
+		{{#if eTitle}}
+			<h3>{{eTitle}}</h3>
+		{{else}}
+			<h4>{{Title}}</h4>
+		{{/if}}
+		<p>{{Content}}</p>
+			<a class="hvr-skew-backward" href="{{buttonLink}}">{{buttonValue}}</a>
 		</div>
-	</div>
+</div>

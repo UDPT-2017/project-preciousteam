@@ -1254,6 +1254,13 @@ nav.nav-sidebar {
     color: #F67777;
     font-family: 'Ubuntu-Regular';
 }
+
+.four h4{
+	font-size: 4em;
+    color: #F67777;
+    font-family: 'Ubuntu-Regular';
+}
+
 .four p{
 	font-size: 0.9em;
     color: #B3B3B3;
@@ -2447,6 +2454,7 @@ td.add-check a {
 .mailer-name {
     float: left;
     width: 70%;
+    margin-left: 10%;
     margin-top: 1.4em;
 }
 .mailer-name h5 {

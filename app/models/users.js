@@ -32,11 +32,22 @@ const User = {
 			}
 		});
 	},
-	addUser: function(pass, email, name, phone, avatar, callback){
-		const type = 2;
-		const state = -2;
+	addUser: function(pass, email, name, phone, avatar, type, state, callback){
+		//const type = 2;
+		//const state = -2;
 		pool.query("INSERT INTO USERS VALUES(default, $1::text, $2::text, $3::text, $4::text, $5::text, $6::int, $7::int)", [pass, email, name, phone, avatar, type, state], 
 			function(err, res){
+			if (err != null){
+				console.log(err);
+				callback(err, null);
+			}
+			else {
+				callback(null, res.rows);
+			}
+		});
+	},
+	activate: function(uID, callback){
+		pool.query("UPDATE USERS SET state = 1 WHERE userid = $1::int", [uID], function(err, res){
 			if (err != null){
 				console.log(err);
 				callback(err, null);
