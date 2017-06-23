@@ -29,6 +29,8 @@ module.exports = function(app) {
 	app.get('/activateAnnounce', controllers.register.activateAnnounce);
 	app.get('/activate/:userid', controllers.register.activate);
 	app.get('/activatePage/:userid', controllers.register.activateSuccess);
+	app.get('/product/:catename', controllers.product.index);
+	app.get('/single/:productid', controllers.product.detail);
 
 	app.post('/logOut', controllers.logIn.logOut);
 

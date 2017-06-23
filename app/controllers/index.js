@@ -5,4 +5,5 @@ module.exports = {
 	user: require('./userController'),
 	admin: require('./adminController'),
 	staff: require('./staffController'),
+	product: require('./productController')
 };
