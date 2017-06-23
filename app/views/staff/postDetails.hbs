@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+          Post Details
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-users"></i> Post Management
+            </li>
+            <li >
+              <i class="fa fa-list"></i> <a href="/allPosts">All Posts</a> or <a href="/newPosts">New Posts</a>
+            </li>
+            <li class="active">
+              <a href="#"><i class="fa fa-list"></i> Post Details</a>
+            </li>
+        </ol>
+        <div class="col-lg-12 ">
+          <div class="col-lg-4 col-sm-6 col-xs-12">
+            {{#each pics}}
+                <img src="/images/{{this.picid}}" style="width:300px; height:300px"alt="">
+            {{/each}}
+            <br>
+            <br>
+          </div>
+          <div class="col-xs-12 post" >
+              <p><b>Product ID:</b> {{post.productid}}</p>
+              <p><b>Product's name:</b> {{post.name}}</p>
+              <p><b>Description:</b> {{post.description}}</p>
+              <p><b>Price:</b> {{post.price}}</p>
+              <p><b>Quantity:</b> {{post.quantity}}</p>
+              <p><b>Salseman:</b> {{post.salseman}}</p>
+              <p><b>Product Type:</b> {{post.productType}}</p>
+              <p><b>Time:</b> {{post.time}}</p>
+              <p><b>Brand:</b> {{post.brand}}</p>
+              <p><b>Employee:</b> {{post.employee}}</p>
+
+              <center>
+                <button id="btnOK" type="button" name="button">OK</button>
+                &nbsp &nbsp &nbsp
+                <button id="btnCancel" type="button" name="button">Cancel</button>
+              </center>
+              <br>
+          </div>
+        </div>
+      </div>
+</div>

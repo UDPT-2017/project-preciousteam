@@ -1,0 +1,78 @@
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+          All Posts
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-users"></i> Post Management
+            </li>
+            <li class="active">
+              <a href="#"><i class="fa fa-list"></i> All Posts</a>
+            </li>
+        </ol>
+        <div class="col-lg-12">
+          {{#each newposts}}
+          <div class="posts">
+            <div class="col-lg-4 col-sm-6 col-xs-12">
+              <br>
+              <img src="images/pc4.jpg" style="width:300px; height:300px"alt="">
+            </div>
+            <ul>
+              <br>
+              <li><b>Product ID:</b> {{this.productid}}</li>
+              <li><b>Product's name:</b> {{this.prname}}</li>
+              <li style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                    <b>Description:</b> {{this.description}}
+              </li>
+              <li><b>Price:</b> {{this.price}}</li>
+              <li><b>Quantity:</b> {{this.quantity}}</li>
+              <li><b>Salseman:</b> {{this.uname}}</li>
+              <li><b>Product Type:</b> {{this.typename}}</li>
+              <li><b>Time:</b> {{this.time}}</li>
+              <li><b>Brand:</b> {{this.brandname}}</li>
+              <br>
+              <li> <a href="/postDetails/{{this.productid}}"><b>Details</b></a></li>
+              <br>
+                &nbsp &nbsp &nbsp   &nbsp &nbsp  &nbsp
+              <button id="btnOK" type="button" name="button">OK</button>
+              &nbsp &nbsp &nbsp
+              <button id="btnCancel" type="button" name="button">Cancel</button>
+            </ul>
+          </div>
+          <br>
+          <br>
+          {{/each}}
+          {{#each posts}}
+                <div class="posts_old">
+                  <div class="col-lg-4 col-sm-6 col-xs-12">
+                    <br>
+                    <img src="images/{{this.picid}}" style="width:300px; height:300px"alt="">
+                  </div>
+                  <ul>
+                    <br>
+                    <li><b>Product ID:</b> {{this.productid}}</li>
+                    <li><b>Product's name:</b> {{this.prname}}</li>
+                    <li style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                          <b>Description:</b> {{this.description}}
+                    </li>
+                    <li><b>Price:</b> {{this.price}}</li>
+                    <li><b>Quantity:</b> {{this.quantity}}</li>
+                    <li><b>Salseman:</b> {{this.usname}}</li>
+                    <li><b>Product Type:</b> {{this.typename}}</li>
+                    <li><b>Time:</b> {{this.time}}</li>
+                    <li><b>Brand:</b> {{this.brandname}}</li>
+                    <li><b>Employee:</b> {{this.uename}}</li>
+                    <br>
+                    <li> <a href="/postDetails/{{this.productid}}"><b>Details</b></a></li>
+                    <br>
+                    <p>Already checked</p>
+                  </ul>
+                </div>
+                <br>
+                <br>
+				{{/each}}
+        </div>
+    </div>
+</div>

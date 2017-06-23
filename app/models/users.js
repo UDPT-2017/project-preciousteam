@@ -20,7 +20,18 @@ const User = {
 				callback(null, res.rows);
 			}
 		});
-	}
+	},
+
+	findUserType: function(type, callback){
+		pool.query("select userID, email, name, phone, state from users where type = $1::int", [type], function(err, res){
+			if(err != null)
+				callback(err, null);
+				else{
+					// 	console.log(res.rows);
+					callback(null, res.rows);
+				}
+		});
+	},
 }
 
 module.exports = User;

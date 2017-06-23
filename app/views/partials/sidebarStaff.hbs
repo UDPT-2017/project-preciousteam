@@ -1,22 +1,27 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
         <li class="{{active_dashboard}}">
-            <a href="homeStaff" ><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+            <a href="/homeStaff" ><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
         </li>
         <li class="{{active_customermanagement}}">
-            <a href="customers" ><i class="fa fa-users"></i> Customer Management</a>
+            <a href="/customers" ><i class="fa fa-users"></i> Customer Management</a>
+        </li>
+        <li class="{{active_order}}">
+            <a href="/orders" ><i class="fa fa-users"></i> Order List</a>
         </li>
         <li  class="{{active_postmanagement}}">
             <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-file-text-o"></i>  Post Management <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="demo" class="collapse">
                 <li>
-                    <a href="#" >All Posts</a>
+                    <a href="/allPosts" >All Posts</a>
                 </li>
                 <li>
-                    <a href="#" >Uncheck Post</a>
+                    <a href="/newPosts" >New Post</a>
                 </li>
             </ul>
         </li>
-
+        <li class="{{active_mail}}">
+          <a href="/mailbox" ><i class="fa fa-envelope"></i> Mailbox</a>
+        </li>
     </ul>
 </div>
