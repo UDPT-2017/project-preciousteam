@@ -25,6 +25,7 @@ const productController = {
 	detail: function(req, res){
 		let user = req.user;
 		const productid = req.params.productid;
+		console.log(req.add);
 		Product.getProduct(productid,  function(err, ress){
 			if (err != null)
 			{

@@ -12,7 +12,7 @@ const Product = {
 		});
 	},
 	getProduct: function(productid, callback){
-		pool.query("select p.name, brand, price, quantity, u.name as salesman, time, description from product p, users u where p.productid = $1::int and p.salseman = u.userid", [productid], function(err, res){
+		pool.query("select p.name, brand, price, quantity, u.name as salesman, time, description, p.productid from product p, users u where p.productid = $1::int and p.salseman = u.userid", [productid], function(err, res){
 			if (err != null){
 				callback(err, null);
 			}

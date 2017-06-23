@@ -29,7 +29,7 @@
 				 <div class="quantity"> 
 								<div class="quantity-select">                           
 									<div class="entry value-minus">&nbsp;</div>
-									<div class="entry value"><span>1</span></div>
+									<div class="entry value" id="quan"><span>1</span></div>
 									<div class="entry value-plus active">&nbsp;</div>
 								</div>
 							</div>
@@ -47,7 +47,7 @@
 	</script>
 	<!--quantity-->
 				 
-			    <a href="#" class="add-to item_add hvr-skew-backward">Add to cart</a>
+			    <button id="add2Cart" onclick="put2cart({{product.quantity}}, {{product.productid}})" class="add-to item_add hvr-skew-backward">Add to cart</button>
 			<div class="clearfix"> </div>
 			</div>
 		
@@ -222,7 +222,7 @@
 		<div class="clearfix"> </div>
 	</div>
 			<!--//footer-->
-<script src="../js/imagezoom.js"></script>
+<script src="../js/single.js"></script>
 <script src="../components/ez-plus/src/jquery.ez-plus.js"></script>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -241,6 +241,7 @@ $(document).ready(function() {
   {
   	($('.imgFas').eq(i)).ezPlus();
   }
+
 });
 </script>
 
