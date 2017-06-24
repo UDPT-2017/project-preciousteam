@@ -23,24 +23,26 @@
             <br>
           </div>
           <div class="col-xs-12 post" >
-              <p><b>Product ID:</b> {{post.productid}}</p>
-              <p><b>Product's name:</b> {{post.name}}</p>
+              <p><b>Product ID:</b>{{post.productid}}</p>
+              <p><b>Product's name:</b> {{post.prname}}</p>
               <p><b>Description:</b> {{post.description}}</p>
               <p><b>Price:</b> {{post.price}}</p>
               <p><b>Quantity:</b> {{post.quantity}}</p>
-              <p><b>Salseman:</b> {{post.salseman}}</p>
-              <p><b>Product Type:</b> {{post.productType}}</p>
+              <p><b>Salseman:</b> {{post.uname}}</p>
+              <p><b>Product Type:</b> {{post.typename}}</p>
               <p><b>Time:</b> {{post.time}}</p>
-              <p><b>Brand:</b> {{post.brand}}</p>
-              <p><b>Employee:</b> {{post.employee}}</p>
+              <p><b>Brand:</b> {{post.brandname}}</p>
+              <p><b>Employee:</b> {{post.ename}}</p>
 
               <center>
-                <button id="btnOK" type="button" name="button">OK</button>
+                <button id="btnOK" onclick="checkPost({{post.productid}}, true)" style="visibility: {{visible}}" type="button" name="button">OK</button>
                 &nbsp &nbsp &nbsp
-                <button id="btnCancel" type="button" name="button">Cancel</button>
+                <button id="btnCancel" onclick="checkPost({{post.productid}}, false)" style="visibility: {{visible}}" type="button" name="button">Cancel</button>
               </center>
               <br>
           </div>
         </div>
       </div>
 </div>
+
+<script src="/js/postDetails.js"></script>

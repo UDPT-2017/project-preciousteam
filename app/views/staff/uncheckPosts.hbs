@@ -28,7 +28,7 @@
                 </li>
                 <li><b>Price:</b> {{this.price}}</li>
                 <li><b>Quantity:</b> {{this.quantity}}</li>
-                <li><b>Salseman:</b> {{this.uname}}</li>
+                <li><b>Salesman:</b> {{this.uname}}</li>
                 <li><b>Product Type:</b> {{this.typename}}</li>
                 <li><b>Time:</b> {{this.time}}</li>
                 <li><b>Brand:</b> {{this.brandname}}</li>
@@ -36,9 +36,9 @@
                 <li> <a href="/postDetails/{{this.productid}}"><b>Details</b></a></li>
                 <br>
                   &nbsp &nbsp &nbsp   &nbsp &nbsp
-                <button id="btnOK" type="button" name="button">OK</button>
+                <button id="btnOK" type="button" onclick="checkPost({{this.productid}}, true)" name="btnOK">OK</button>
                 &nbsp &nbsp &nbsp
-                <button id="btnCancel" type="button" name="button">Cancel</button>
+                <button id="btnCancel" type="button" onclick="checkPost({{this.productid}}, false)" name="btnCancel">Cancel</button>
               </ul>
             </div>
               <br>
@@ -47,3 +47,5 @@
         </div>
     </div>
 </div>
+
+<script src="/js/uncheckPosts.js"></script>

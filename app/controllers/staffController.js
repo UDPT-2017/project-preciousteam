@@ -53,6 +53,7 @@ const staffController = {
 				username: user.name,
 				tit: usertype + ' Details',
 				usertype: usertype,
+				userid: usersDt[0].userid,
 				name: usersDt[0].name,
 				email: usersDt[0].email,
 				phone: usersDt[0].phone,
@@ -88,17 +89,39 @@ const staffController = {
 	},
 
 	postDetail: function(req, res){
-		Post.getPost(req.params.id, function(err, post){
-			Post.findPicPost(req.params.id, function(err, pics){
-				res.render('staff/postDetails',{
-					layout: layout,
-					active_postmanagement: 'active',
-					tit: 'Post Details',
-					username: user.name,
-					post: post[0],
-					pics: pics
+		let visible = "hidden";
+		Post.check(req.params.id, function(errc, rsc){
+			if(rsc[0].employee == null){
+				visible = "visible";
+				Post.getPost(req.params.id, function(err, post){
+					Post.findPicPost(req.params.id, function(err, pics){
+						res.render('staff/postDetails',{
+							layout: layout,
+							active_postmanagement: 'active',
+							tit: 'Post Details',
+							username: user.name,
+							post: post[0],
+							pics: pics,
+							visible: visible
+						});
+					});
 				});
-			});
+			}
+			else{
+				Post.getPostChecked(req.params.id, function(err, post){
+					Post.findPicPost(req.params.id, function(err, pics){
+						res.render('staff/postDetails',{
+							layout: layout,
+							active_postmanagement: 'active',
+							tit: 'Post Details',
+							username: user.name,
+							post: post[0],
+							pics: pics,
+							visible: visible
+						});
+					});
+				});
+			}
 		});
 	},
 
@@ -121,6 +144,7 @@ const staffController = {
 		 res.render('staff/orders',{
 			 layout: layout,
 			 username: user.name,
+			 active_order:"active",
 			 tit: "Orders",
 			 orders: orders,
 		 });
@@ -136,6 +160,40 @@ const staffController = {
 				username: user.name,
 				mails:mails,
 			});
+		});
+	},
+
+	readmail: function(req, res){
+		Inbox.readmail(req.body.messageid, function(err, result){
+
+		});
+	},
+
+	blockUser: function(req, res){
+		User.blockUser(req.params.id, function(err, result){
+			if(err!=null){
+				res.end('0');
+			}
+			else{
+				res.end('1');
+			}
+		});
+	},
+
+	checkPost: function(req, res){
+		Post.checkPost(req.body.productID, req.body.userID, req.body.btn, function(err, result){
+			// console.log("do check posst controler" + req.body.productID);
+			// console.log("do check posst controler" + req.body.userID);
+			// console.log("do check posst controler" + req.body.btn);
+			if(err!=null){
+				res.end('0');
+			}
+			else{
+				if(req.body.btn=='true')
+					res.end('1');
+				else
+					res.end('2');
+			}
 		});
 	}
 };

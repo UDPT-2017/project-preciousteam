@@ -17,7 +17,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div data-background-color="purple">
-                    <h4 class="title"> Staff 's information</h4>
+                    <h4 class="title"> {{usertype}}'s information</h4>
                     <br>
                 </div>
                 <center>
@@ -26,18 +26,18 @@
               <form>
                 <br>
                 <div class="row">
-                <div class="col-md-6">
-        					<div class="form-group">
-        						<label class="control-label">Email </label>
-        						<input type="email" class="form-control" readonly value = "{{email}}">
-        					</div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group ">
-                    <label class="control-label">Password </label>
-                    <input type="text" class="form-control" readonly value="***********">
+                  <div class="col-md-6">
+                    <div class="form-group ">
+                      <label class="control-label">User ID </label>
+                      <input id = "uid" type="text" class="form-control" readonly value="{{userid}}">
+                    </div>
                   </div>
-                </div>
+                  <div class="col-md-6">
+          					<div class="form-group">
+          						<label class="control-label">Email </label>
+          						<input type="email" class="form-control" readonly value = "{{email}}">
+          					</div>
+                  </div>
               </div>
               <br>
               <div class="row">
@@ -55,7 +55,7 @@
                   </div>
               </div>
               <br>
-              <button id ="btnAdd" type="" class="btn btn-danger pull-right">Block User</button>
+              <button id ="btnAdd" type="button" class="btn btn-danger pull-right">Block User</button>
               <div class="clearfix"></div>
           </form>
         </div>
@@ -63,3 +63,4 @@
     </div>
 </div>
 <!-- /.row -->
+<script src="/js/userDetail.js"></script>
