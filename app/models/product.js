@@ -2,7 +2,7 @@ const pool = require('./connect');
 
 const Product = {
 	getProductBasedOnCate: function(catename, callback){
-		pool.query("select distinct on (p.productid) p.productid, name, brand, typename, price, picid from product p, producttype pt, category c, picture pic where p.producttype = typeid  and c.catename = 'Female' and pt.category = c.cateid and catename = $1::text and  p.productid = pic.productid", [catename], function(err, res){
+		pool.query("select distinct on (p.productid) p.productid, name, brand, typename, price, picid from product p, producttype pt, category c, picture pic where p.producttype = typeid  and c.catename = $1::text and pt.category = c.cateid and catename = $1::text and  p.productid = pic.productid and p.state = 1", [catename], function(err, res){
 			if (err != null){
 				callback(err, null);
 			}
@@ -12,7 +12,7 @@ const Product = {
 		});
 	},
 	getProduct: function(productid, callback){
-		pool.query("select p.name, brand, price, quantity, u.name as salesman, time, description, p.productid from product p, users u where p.productid = $1::int and p.salseman = u.userid", [productid], function(err, res){
+		pool.query("select p.name, brand, price, quantity, u.name as salesman, time, description, p.productid from product p, users u where p.productid = $1::int and p.salesman = u.userid", [productid], function(err, res){
 			if (err != null){
 				callback(err, null);
 			}

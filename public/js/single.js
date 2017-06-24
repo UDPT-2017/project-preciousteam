@@ -1,10 +1,6 @@
 
 	function put2cart(proQuan, productid){
-				let quan = $('#quan').val();
-				if (quan.localeCompare("") == 0)
-				{
-					quan = 1;
-				}
+				let quan = $('#quan').text();
 				if (quan > proQuan)
 				{
 					swal({
