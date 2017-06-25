@@ -91,7 +91,7 @@ const staffController = {
 	postDetail: function(req, res){
 		let visible = "hidden";
 		Post.check(req.params.id, function(errc, rsc){
-			if(rsc[0].employee == null){
+			if(rsc[0].state == 0){
 				visible = "visible";
 				Post.getPost(req.params.id, function(err, post){
 					Post.findPicPost(req.params.id, function(err, pics){

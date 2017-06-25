@@ -273,7 +273,7 @@ h1{
 }
 
 #unread{
-  background-color: #e6ffff;
+  background-color: #ccf2ff;
 }
 .posts {
   font-size: 16px;
@@ -295,7 +295,6 @@ h1{
   border-color: blue;
 }
 
-
 .post {
   font-size: 20px;
   white-space: normal!important;
@@ -306,17 +305,19 @@ h1{
 }
 
 #btnOK{
-  width: 150px;
+  width: 30%;
+  height: 43px;
   font-weight: bold;
   font-size: 20px;
   color: blue;
 }
 
 #btnCancel{
-  width: 150px;
+  width: 30%;
   font-weight: bold;
   font-size: 20px;
   color: red;
+  height: 43px;
 }
 
 #btnOK:hover{
@@ -396,4 +397,10 @@ h1{
     padding: 2px 16px;
     background-color: #404040;
     color: white;
+}
+
+.setPost{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

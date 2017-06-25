@@ -14,34 +14,52 @@
               <a href="#"><i class="fa fa-list"></i> Post Details</a>
             </li>
         </ol>
-        <div class="col-lg-12 ">
-          <div class="col-lg-4 col-sm-6 col-xs-12">
-            {{#each pics}}
-                <img src="/images/{{this.picid}}" style="width:300px; height:300px"alt="">
-            {{/each}}
-            <br>
+        <!-- <div class="col-lg-12"> -->
+          <div class="raw">
+              {{#each pics}}
+              <div class="col-lg-4 col-sm-6 col-xs-12 ">
+                  <img src="/images/{{this.picid}}" style="width:95%"alt="">
+                  <br>
+              </div>
+              {{/each}}
+          </div>
+          <div class="raw col-xs-12">
             <br>
           </div>
-          <div class="col-xs-12 post" >
-              <p><b>Product ID:</b>{{post.productid}}</p>
-              <p><b>Product's name:</b> {{post.prname}}</p>
-              <p><b>Description:</b> {{post.description}}</p>
-              <p><b>Price:</b> {{post.price}}</p>
-              <p><b>Quantity:</b> {{post.quantity}}</p>
-              <p><b>Salseman:</b> {{post.uname}}</p>
-              <p><b>Product Type:</b> {{post.typename}}</p>
-              <p><b>Time:</b> {{post.time}}</p>
-              <p><b>Brand:</b> {{post.brandname}}</p>
-              <p><b>Employee:</b> {{post.ename}}</p>
-
-              <center>
-                <button id="btnOK" onclick="checkPost({{post.productid}}, true)" style="visibility: {{visible}}" type="button" name="button">OK</button>
-                &nbsp &nbsp &nbsp
-                <button id="btnCancel" onclick="checkPost({{post.productid}}, false)" style="visibility: {{visible}}" type="button" name="button">Cancel</button>
-              </center>
+          <div class="raw">
+            <div class="post col-xs-12" >
               <br>
+                <p><b>Product ID:</b>{{post.productid}}</p>
+                <p><b>Product's name:</b> {{post.prname}}</p>
+                <p><b>Description:</b> {{post.description}}</p>
+                <p><b>Price:</b> {{post.price}}</p>
+                <p><b>Quantity:</b> {{post.quantity}}</p>
+                <p><b>Salseman:</b> {{post.uname}}</p>
+                <p><b>Product Type:</b> {{post.typename}}</p>
+                <p><b>Time:</b> {{post.time}}</p>
+                <p><b>Brand:</b> {{post.brandname}}</p>
+                <p><b>Employee:</b> {{post.ename}}</p>
+                {{#compare post.state '==' "1"}}
+                  <br>
+                    <p style="color:blue">Already checked</p>
+                {{/compare}}
+                {{#compare post.state '==' "-1"}}
+                    <br>
+                    <p style="color:red">Already canceled</p>
+                {{/compare}}
+                <center>
+                  <button id="btnOK" onclick="checkPost({{post.productid}}, true)" style="visibility: {{visible}}" type="button" name="button">OK</button>
+                  &nbsp &nbsp &nbsp
+                  <button id="btnCancel" onclick="checkPost({{post.productid}}, false)" style="visibility: {{visible}}" type="button" name="button">Cancel</button>
+                </center>
+                <br>
+            </div>
           </div>
-        </div>
+
+
+
+        <!-- </div> -->
+
       </div>
 </div>
 

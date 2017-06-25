@@ -24,8 +24,11 @@ module.exports = function(app) {
 	app.get('/posts', controllers.user.posts);
 	app.get('/createpost', controllers.user.createpost);
 
-	// app.get('/about', controllers.user.about);
-	// app.get('/contact', controllers.user.contact);
+	app.get('/addDiscount', controllers.user.addDiscount);
+	app.post('/addDiscount', controllers.user.addDiscountSave);
+	app.get('/about', controllers.user.about);
+	app.get('/contact', controllers.user.contact);
+	app.post('/contact', controllers.user.sendMessage);
 
 	app.get('/homeAdmin', controllers.admin.index);
 	app.get('/addStaff', controllers.admin.addStaff);

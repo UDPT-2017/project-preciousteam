@@ -1,24 +1,16 @@
-var user = {
-	userID: 1,
-	email: 'phuongthanh@gmail.com',
-	name: 'Phương Thanh',
-	phone: '0123547863',
-	type: '0',
-	state: '1',
-};
 
-function checkPost(productID, btn){
+
+$("#btnSend").click(function(){
       $.ajax({
       type: 'POST',
-      data: {productID:productID, userID:user.userID, btn:btn},
-      url: '/newPosts',
+      data: {email:$('#email').val(), subject:$('#subject').val(), message:$('#msg').val()},
+      url: '/contact',
       success: function(data){
         if (data.localeCompare('1') === 0)
         {
-          // alert("Thành công rồi kià");
           swal({
                    title: "Success!",
-                   text: "Check post successfully!",
+                   text: "Send message successful!",
                    type: "success",
                   confirmButtonText: "Cool"
                 },
@@ -28,20 +20,6 @@ function checkPost(productID, btn){
                   }
               });
         }
-        else if(data.localeCompare('2') === 0){
-					swal({
-                   title: "Success!",
-                   text: "Cancel post successfully!",
-                   type: "success",
-                  confirmButtonText: "Cool"
-                },
-                function (isConfirm) {
-                  if (isConfirm) {
-										window.location.href = "/allPosts";
-										window.load();
-                  }
-              });
-				}
 				else{
           // alert("Lỗi do định mệnh");
           swal({
@@ -79,5 +57,6 @@ function checkPost(productID, btn){
             });
             console.log(msg);
       }
-    })
-  }
+    });
+    return false;
+  });

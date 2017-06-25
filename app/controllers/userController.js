@@ -1,3 +1,6 @@
+const Inbox = require('../models/inbox.js');
+const Post = require('../models/posts.js');
+
 const userController  = {
 	index: function(req, res){
 		res.render('profile');
@@ -23,7 +26,47 @@ const userController  = {
 	},
 	createpost: function(req, res){
 		res.render('createpost', {
-			
+
+		});
+	},
+	addDiscount: function(req, res){
+		Post.getPostUser(4, function(err, product){
+			res.render('addDiscount',{
+				active_discount: 'active',
+				product: product
+			});
+		});
+	},
+
+	addDiscountSave: function(req, res){
+		Post.addDiscount(req.body.productID, req.body.percent, req.body.first, req.body.last, function(err, result){
+			if(err!=null){
+				res.end('0');
+			}
+			else {
+				res.end('1');
+			}
+		})
+	},
+
+	about: function(req, res){
+		res.render('about',{
+			active_about: 'fixedactive',
+
+		});
+	},
+	contact: function(req, res){
+		res.render('contact',{
+			active_contact: 'fixedactive',
+
+		});
+	},
+	sendMessage: function(req, res){
+		Inbox.sendMessage(req.body.email, req.body.subject, req.body.message, function(err, result){
+			if(err != null)
+					res.end('0');
+			else
+					res.end('1');
 		});
 	}
 };

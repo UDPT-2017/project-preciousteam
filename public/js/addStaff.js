@@ -13,7 +13,7 @@
               // alert("Thành công rồi kià");
               swal({
                        title: "Success!",
-                       text: "Add staff successful!",
+                       text: "Add staff successfully!",
                        type: "success",
                       confirmButtonText: "Cool"
                     });

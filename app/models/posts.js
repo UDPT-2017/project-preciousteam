@@ -2,7 +2,7 @@ const pool = require('./connect');
 
 const posts = {
 	findOldPost: function(callback){
-		pool.query("select  pr.productID, pr.name as prname, pr.description, pr.price, pr.quantity, u_s.name as usname, pt.typeName, pr.time, b.brandName, u_e.name as uename, pic.picID "
+		pool.query("select  pr.productID, pr.name as prname, pr.description, pr.price, pr.quantity, u_s.name as usname, pt.typeName, pr.time, b.brandName, u_e.name as uename, pic.picID, pr.state "
 		+" from product pr, picture pic, users u_s, users u_e, producttype pt, brand b "
     +" where pr.salesman = u_s.userID and pr.employee = u_e.userID "
     +" and pr.producttype = pt.typeID and pr.brand = b.brandID "
@@ -19,9 +19,9 @@ const posts = {
 	},
 
 	findNewPost: function(callback){
-		pool.query("select  pr.productID, pr.name as prname, pr.description, pr.price, pr.quantity, u.name as uname, pt.typeName, pr.time, b.brandName, pic.picID"
+		pool.query("select  pr.productID, pr.name as prname, pr.description, pr.price, pr.quantity, u.name as uname, pt.typeName, pr.time, b.brandName, pic.picID, pr.state"
 		+" from product pr, picture pic, users u, producttype pt, brand b "
-    +" where pr.employee is null and pr.salesman = u.userID "
+    +" where pr.state = 0 and pr.salesman = u.userID "
     +" and pr.producttype = pt.typeID and pr.brand = b.brandID "
                 +" and pic.picID in (select pic1.picID from picture pic1 where pic1.productID = pr.productID  limit 1)"
                 +"order by pr.productID desc", function(err, res){
@@ -47,7 +47,7 @@ const posts = {
 	},
 
 	check: function(productID, callback){
-		pool.query("select employee from product where productID = $1::int", [productID], function(err, res){
+		pool.query("select state from product where productID = $1::int", [productID], function(err, res){
 			if (err != null){
 				callback(err, null);
 			}
@@ -72,7 +72,7 @@ const posts = {
 		});
 	},
 	getPostChecked: function(productID, callback){
-		pool.query("select  pr.productID, pr.name as prname, pr.description, pr.price, pr.quantity, u.name as uname, ue.name as ename, pt.typeName, pr.time, b.brandName, pic.picID"
+		pool.query("select  pr.productID, pr.name as prname, pr.description, pr.price, pr.quantity, u.name as uname, ue.name as ename, pt.typeName, pr.time, b.brandName, pic.picID, pr.state"
 		+" from product pr, picture pic, users u, users ue, producttype pt, brand b "
     +" where pr.salesman = u.userID and pr.employee = ue.userID and pr.producttype = pt.typeID "
 		+" and pr.brand = b.brandID and pr.productID = $1::int", [productID], function(err, res){
@@ -102,7 +102,7 @@ const posts = {
 		// console.log("do check posst models" + employee);
 		// console.log("do check posst models" + btn);
 				if(btn=='true'){
-					pool.query("update product set employee = $1::int where productID = $2::int",[employee, productID], function(err, res){
+					pool.query("update product set state = 1, employee = $1::int where productID = $2::int",[employee, productID], function(err, res){
 						if(err != null){
 							console.log(err);
 							callback(err, null);
@@ -113,24 +113,38 @@ const posts = {
 					});
 				}
 				else{
-					pool.query("delete from picture where productID = $1::int", [productID], function(err1, res1){
-						if(err1 != null){
-							callback(err1, null);
-						}
-						else{
-								pool.query("delete from product where productID = $1::int",[productID], function(err, res){
-									if(err != null){
-										callback(err, null);
-									}
-									else{
-										callback(null, res.rows);
-									}
-								});
-						}
-					});
+						pool.query("update product set state = -1, employee = $1::int where productID = $2::int",[employee, productID], function(err, res){
+							if(err != null){
+								callback(err, null);
+							}
+							else{
+								callback(null, res.rows);
+							}
+						});
 				}
-
 		},
+
+		getPostUser: function(userID, callback){
+			pool.query("select productID, name from product where salesman = $1::int order by productID desc", [userID], function(err, res){
+				if(err != null){
+					callback(err, null);
+				}
+				else{
+					callback(null, res.rows);
+				}
+			});
+		},
+
+		addDiscount: function(productID, percent, first, last, callback){
+			pool.query("insert into discount values (default, $1::date, $2::date, $3::int, $4::int)",[first, last, percent, productID], function(err, res){
+				if(err != null){
+					callback(err, null);
+				}
+				else{
+					callback(null, res.rows);
+				}
+			});
+		}
 }
 
 module.exports = posts;

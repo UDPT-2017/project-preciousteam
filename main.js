@@ -3,6 +3,7 @@
 const express = require('express');
 const app = express();
 const config = require('./config');
+const helpers = require('handlebars-helpers')();
 
 config(app);
 

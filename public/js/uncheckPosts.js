@@ -18,7 +18,7 @@ function checkPost(productID, btn){
           // alert("Thành công rồi kià");
           swal({
                    title: "Success!",
-                   text: "Check post successful!",
+                   text: "Check post successfully!",
                    type: "success",
                   confirmButtonText: "Cool"
                 },
@@ -31,7 +31,7 @@ function checkPost(productID, btn){
         else if(data.localeCompare('2') === 0){
 					swal({
                    title: "Success!",
-                   text: "Delete post successful!",
+                   text: "Cancel post successfully!",
                    type: "success",
                   confirmButtonText: "Cool"
                 },

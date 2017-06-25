@@ -10,7 +10,7 @@ $("#btnAdd").click(function(){
           // alert("Thành công rồi kià");
           swal({
                    title: "Success!",
-                   text: "Block user successful!",
+                   text: "Block user successfully!",
                    type: "success",
                   confirmButtonText: "Cool"
                 });

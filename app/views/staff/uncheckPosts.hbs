@@ -12,39 +12,40 @@
               <a href="#"><i class="fa fa-list"></i> New Posts</a>
             </li>
         </ol>
-        <div class="col-lg-12">
           {{#each posts}}
-            <div class="posts">
-              <div class="col-lg-4 col-sm-6 col-xs-12">
+          <div class="col-sm-6 col-xs-12">
+            <div class="posts ">
+              <center>
                 <br>
-                <img src="images/{{this.picid}}" style="width:300px; height:300px"alt="">
+                <img src="images/{{this.picid}}" style="width:50%; height:250px";alt="">
+              </center>
+              <div class="setPost">
+                <ul>
+                  <br>
+                  <li><b>Product ID:</b> {{this.productid}}</li>
+                  <li><b>Product's name:</b> {{this.prname}}</li>
+                  <li style="">
+                        <b>Description:</b> {{this.description}}
+                  </li>
+                  <li><b>Price:</b> {{this.price}}</li>
+                  <li><b>Quantity:</b> {{this.quantity}}</li>
+                  <li><b>Salesman:</b> {{this.uname}}</li>
+                  <li><b>Product Type:</b> {{this.typename}}</li>
+                  <li><b>Time:</b> {{this.time}}</li>
+                  <li><b>Brand:</b> {{this.brandname}}</li>
+                  <br>
+                  <li> <a href="/postDetails/{{this.productid}}"><b>Details</b></a></li>
+                  <br>
+                    &nbsp &nbsp &nbsp   &nbsp &nbsp  &nbsp
+                    <button id="btnOK" type="button" onclick="checkPost({{this.productid}}, true)" name="button">OK</button>
+                    &nbsp &nbsp &nbsp
+                    <button id="btnCancel" type="button" onclick="checkPost({{this.productid}}, false)" name="button">Cancel</button>
+                </ul>
               </div>
-              <ul>
-                <br>
-                <li><b>Product ID:</b> {{this.productid}}</li>
-                <li><b>Product's name:</b> {{this.prname}}</li>
-                <li style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
-                      <b>Description:</b> {{this.description}}
-                </li>
-                <li><b>Price:</b> {{this.price}}</li>
-                <li><b>Quantity:</b> {{this.quantity}}</li>
-                <li><b>Salesman:</b> {{this.uname}}</li>
-                <li><b>Product Type:</b> {{this.typename}}</li>
-                <li><b>Time:</b> {{this.time}}</li>
-                <li><b>Brand:</b> {{this.brandname}}</li>
-                <br>
-                <li> <a href="/postDetails/{{this.productid}}"><b>Details</b></a></li>
-                <br>
-                  &nbsp &nbsp &nbsp   &nbsp &nbsp
-                <button id="btnOK" type="button" onclick="checkPost({{this.productid}}, true)" name="btnOK">OK</button>
-                &nbsp &nbsp &nbsp
-                <button id="btnCancel" type="button" onclick="checkPost({{this.productid}}, false)" name="btnCancel">Cancel</button>
-              </ul>
             </div>
-              <br>
-              <br>
+            <br>
+          </div>
 				{{/each}}
-        </div>
     </div>
 </div>
 
