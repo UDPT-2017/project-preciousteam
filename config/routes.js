@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const controllers = require('../app/controllers');
 const LocalStrategy = require('passport-local').Strategy;
 var passport = require('passport');
+var Router = require('express').Router;
 
 module.exports = function(app) {
 
@@ -24,34 +25,67 @@ module.exports = function(app) {
 	app.get('/posts', controllers.user.posts);
 	app.get('/createpost', controllers.user.createpost);
 
-	app.get('/addDiscount', controllers.user.addDiscount);
-	app.post('/addDiscount', controllers.user.addDiscountSave);
-	app.get('/about', controllers.user.about);
-	app.get('/contact', controllers.user.contact);
-	app.post('/contact', controllers.user.sendMessage);
-
-	app.get('/homeAdmin', controllers.admin.index);
-	app.get('/addStaff', controllers.admin.addStaff);
-	app.get('/staffList', controllers.admin.staffList);
-	app.post('/addStaff', controllers.admin.createStaff);
-
-	app.get('/homeStaff', controllers.staff.index);
-	app.get('/customers', controllers.staff.customers);
-	app.get('/userDetail/:id', controllers.staff.userDetail);
-	app.post('/userDetail/:id', controllers.staff.blockUser);
-
-	app.get('/allPosts', controllers.staff.allPosts);
-	app.get('/newPosts', controllers.staff.newPosts);
-	app.get('/postDetails/:id', controllers.staff.postDetail);
-	app.post('/postDetails/:id', controllers.staff.checkPost);
-	app.post('/newPosts', controllers.staff.checkPost);
-	app.get('/orders', controllers.staff.orders);
-
-	app.get('/editProfile', controllers.staff.editProfile);
-
-	app.get('/mailbox', controllers.staff.mailbox);
-	app.post('/mailbox', controllers.staff.readmail);
-
 	app.get('/404/:id', controllers.user.err);
+
+	var addDiscount = Router()
+		.get('/', controllers.user.addDiscount)
+		.post('/', controllers.user.addDiscountSave);
+
+	var about = Router()
+		.get('/', controllers.user.about);
+
+	var contact = Router()
+		.get('/', controllers.user.contact)
+		.post('/', controllers.user.sendMessage);
+
+	var homeAdmin = Router()
+			.get('/', controllers.admin.index);
+	var addStaff = Router()
+			.get('/', controllers.admin.addStaff)
+			.post('/', controllers.admin.createStaff);
+	var staffList = Router()
+			.get('/', controllers.admin.staffList);
+
+	var homeStaff = Router()
+		.get('/', controllers.staff.index);
+	var customers = Router()
+		.get('/', controllers.staff.customers);
+	var userDetail = Router()
+		.get('/:id', controllers.staff.userDetail)
+		.post('/:id', controllers.staff.blockUser);
+	var allPosts = Router()
+		.get('/', controllers.staff.allPosts);
+	var newPosts = Router()
+		.get('/', controllers.staff.newPosts)
+		.post('/', controllers.staff.checkPost);
+	var postDetails = Router()
+		.get('/:id', controllers.staff.postDetail)
+		.post('/:id', controllers.staff.checkPost);
+	var orders = Router()
+		.get('/', controllers.staff.orders);
+	var editProfile = Router()
+		.get('/', controllers.staff.editProfile);
+
+	var mailbox = Router()
+		.get('/', controllers.staff.mailbox)
+		.post('/', controllers.staff.readmail);
+
+	app.use('/homeAdmin', homeAdmin);
+	app.use('/addStaff', addStaff);
+	app.use('/staffList', staffList);
+
+	app.use('/homeStaff', homeStaff);
+	app.use('/customers', customers);
+	app.use('/userDetail', userDetail);
+	app.use('/allPosts', allPosts);
+	app.use('/newPosts', newPosts);
+	app.use('/postDetails', postDetails);
+	app.use('/orders', orders);
+	app.use('/editProfile', editProfile);
+	app.use('/mailbox', mailbox);
+
+	app.use('/about', about);
+	app.use('/contact', contact);
+	app.use('/addDiscount', addDiscount);
 
 };
