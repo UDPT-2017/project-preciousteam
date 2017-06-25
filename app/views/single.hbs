@@ -79,7 +79,7 @@
 												<img src="../images/{{this.userpic}}" class="cmtPic" alt=""/>
 											</div>
 											<div class="cmnt-icon-right">
-												<p>{{this.time}}</p>
+												<p class="time">{{this.time}}</p>
 												<p>{{this.useremail}}</p>
 												<p class="cmmnt">{{this.detail}}</p>
 											</div>
@@ -113,18 +113,13 @@
 								 </div>	
 								 <script>
 								 $(document).ready(function() {
-								 	let $cmt = $( "<div class='comments-info'></div>" );
-								 	let $cmtLeft = $("<div class='cmnt-icon-left'></div> ");
-								 	let $cmtRight = $("<div class='cmnt-icon-right'></div> ");
-								 	let $date = $("<p></p>");
-								 	let $uName = $("<p></p>");
-								 	let $uCon = $("<p class='cmmnt'></p>");
-								 	let $uPic = $("<img class='cmtPic'/>");
-								 	let $clear =  $( "<div class='clearfix'></div>" );
-								 	$('#comment').append($cmt);
-								 	$cmt.append($cmtLeft, $cmtRight, $clear);
-								 	$cmtLeft.append($uPic);
-								 	$cmtRight.append($date, $uName, $uCon);
+								 	const comNum = $('.time').length;
+								 	for (let i = 0; i<comNum; i++)
+								 	{
+								 		let curTime = ($('.time').eq(i)).text();
+								 		let distance = moment(curTime).fromNow();
+								 		($('.time').eq(i)).text(distance);
+								 	}
 								 })
 								 
 								 </script>
