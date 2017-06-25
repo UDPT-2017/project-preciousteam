@@ -7,7 +7,7 @@ var user = {
 	email: 'phuongthanh@gmail.com',
 	name: 'Phương Thanh',
 	phone: '0123547863',
-	type: '2',
+	type: '1',
 	state: '1',
 };
 
@@ -27,7 +27,12 @@ const staffController = {
 				});
 		}
 		else {
-			res.render('401');
+			res.render('404',{
+				eTitle: '401',
+				Content: 'Authorization require',
+				buttonLink:'/home',
+				buttonValue:'Back to home'
+				});
 		}
 	},
 
@@ -46,7 +51,12 @@ const staffController = {
 			});
 		}
 		else {
-			res.render('401')
+			res.render('404',{
+				eTitle: '401',
+				Content: 'Authorization require',
+				buttonLink:'/home',
+				buttonValue:'Back to home'
+				});
 		}
 	},
 
@@ -77,7 +87,12 @@ const staffController = {
 				});
 			}
 			else {
-				res.render('401');
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
 			}
 	},
 	allPosts: function(req, res){
@@ -98,7 +113,12 @@ const staffController = {
 			});
 		}
 		else {
-			res.render('401');
+			res.render('404',{
+				eTitle: '401',
+				Content: 'Authorization require',
+				buttonLink:'/home',
+				buttonValue:'Back to home'
+				});
 		}
 	},
 
@@ -117,7 +137,12 @@ const staffController = {
 			});
 		}
 		else {
-			res.render('401');
+			res.render('404',{
+				eTitle: '401',
+				Content: 'Authorization require',
+				buttonLink:'/home',
+				buttonValue:'Back to home'
+				});
 		}
 		},
 
@@ -161,7 +186,12 @@ const staffController = {
 				});
 			}
 			else {
-				res.render('401');
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
 			}
 	},
 
@@ -182,7 +212,12 @@ const staffController = {
 			});
 		}
 		else {
-			res.render('401');
+			res.render('404',{
+				eTitle: '401',
+				Content: 'Authorization require',
+				buttonLink:'/home',
+				buttonValue:'Back to home'
+				});
 		}
 	},
 
@@ -201,7 +236,12 @@ const staffController = {
 		 });
  	}
 	else {
-		res.render('401');
+		res.render('404',{
+			eTitle: '401',
+			Content: 'Authorization require',
+			buttonLink:'/home',
+			buttonValue:'Back to home'
+			});
 	}
  },
 
@@ -220,7 +260,12 @@ const staffController = {
 			});
 		}
 		else{
-			res.render('401');
+			res.render('404',{
+				eTitle: '401',
+				Content: 'Authorization require',
+				buttonLink:'/home',
+				buttonValue:'Back to home'
+				});
 		}
 	},
 

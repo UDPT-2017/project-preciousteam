@@ -68,6 +68,25 @@ const userController  = {
 			else
 					res.end('1');
 		});
+	},
+
+	err: function(req, res){
+		if(req.params.id==1){
+			res.render('404',{
+				eTitle: '404',
+				Content: 'Page not found',
+				buttonLink:'/home',
+				buttonValue:'Back to home'
+			});
+		}
+		if(req.params.id==2){
+			res.render('404',{
+				eTitle: '500',
+				Content: 'Internal Server Error',
+				buttonLink:'/home',
+				buttonValue:'Back to home'
+			});
+		}
 	}
 };
 

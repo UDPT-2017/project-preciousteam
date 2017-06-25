@@ -4,7 +4,7 @@ let user = {
 	email: 'phuongthanh@gmail.com',
 	name: 'Phương Thanh',
 	phone: '0123547863',
-	type:'1',
+	type:'0',
 	state: '1'
 };
 
@@ -19,13 +19,21 @@ const adminController = {
 			});
 		}
 		else if(user.type === '1'){
-			res.render('401',{
+			res.render('404',{
 				layout: 'applicationStaff',
-				username: user.name
+				username: user.name,
+				eTitle: '401',
+				Content: 'Authorization require',
+				buttonLink:'/homeStaff',
+				buttonValue:'Back to home'
 			});
 		}
 		else{
-			res.render('401',{
+			res.render('404',{
+				eTitle: '401',
+				Content: 'Authorization require',
+				buttonLink:'/home',
+				buttonValue:'Back to home'
 			});
 		}
 	},
@@ -41,13 +49,21 @@ const adminController = {
 	    });
 		}
 		else if(user.type === '1'){
-			res.render('401',{
+			res.render('404',{
 				layout: 'applicationStaff',
-				username: user.name
+				username: user.name,
+				eTitle: '401',
+				Content: 'Authorization require',
+				buttonLink:'/homeStaff',
+				buttonValue:'Back to home'
 				});
 		}
 		else{
-			res.render('401',{
+			res.render('404',{
+				eTitle: '401',
+				Content: 'Authorization require',
+				buttonLink:'/home',
+				buttonValue:'Back to home'
 				});
 		}
 	},
@@ -88,13 +104,21 @@ const adminController = {
 			});
 		}
 		else if(user.type === '1'){
-			res.render('401',{
+			res.render('404',{
 				layout: 'applicationStaff',
-				username: user.name
+				username: user.name,
+				eTitle: '401',
+				Content: 'Authorization require',
+				buttonLink:'/homeStaff',
+				buttonValue:'Back to home'
 				});
 		}
 		else{
-			res.render('401',{
+			res.render('404',{
+				eTitle: '401',
+				Content: 'Authorization require',
+				buttonLink:'/home',
+				buttonValue:'Back to home'
 				});
 		}
 	},

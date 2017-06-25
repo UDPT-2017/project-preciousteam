@@ -7,7 +7,7 @@
           type: 'POST',
           data: { pass: pass, email:email, name:name, phone:phone},
           url: '/addStaff',
-          success: function(data){
+          success: function(data, res){
             if (data.localeCompare('1') === 0)
             {
               // alert("Thành công rồi kià");
@@ -45,29 +45,14 @@
             }
           },
           error: function(jqXHR, exception) {
-            var msg = '';
-            if (jqXHR.status === 0) {
-                msg = 'Not connect.\n Verify Network.';
-            } else if (jqXHR.status == 404) {
-                msg = 'Requested page not found. [404]';
-            } else if (jqXHR.status == 500) {
-                msg = 'Internal Server Error [500].';
-            } else if (exception === 'parsererror') {
-                msg = 'Requested JSON parse failed.';
-            } else if (exception === 'timeout') {
-                msg = 'Time out error.';
-            } else if (exception === 'abort') {
-                msg = 'Ajax request aborted.';
-            } else {
-                msg = 'Uncaught Error.\n' + jqXHR.responseText;
+            if (jqXHR.status == 404) {
+              window.location.href = "/404/1";
+              window.load();
+            } else{
+                // msg = 'Internal Server Error [500].';
+                window.location.href = "/404/2";
+                window.load();
             }
-            swal({
-                  title: "Oops!!",
-                  text: msg,
-                  type: "error",
-                  confirmButtonText: "Try again",
-                  confirmButtonColor: "#DD6B55"
-                });
           }
         })
     });

@@ -52,5 +52,6 @@ module.exports = function(app) {
 	app.get('/mailbox', controllers.staff.mailbox);
 	app.post('/mailbox', controllers.staff.readmail);
 
+	app.get('/404/:id', controllers.user.err);
 
 };
