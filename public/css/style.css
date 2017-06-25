@@ -2708,3 +2708,10 @@ button {
     margin-left: 20px;
 }
 
+.emP {
+	font-weight: bold;
+}
+
+.timeP {
+	color: #B3B3B3 !important;
+}
