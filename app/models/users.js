@@ -82,7 +82,39 @@ const User = {
 				}
 			})
 		}
-		
+},
+	findUserType: function(type, callback){
+		pool.query("select userID, email, name, phone, state from users where type = $1::int", [type], function(err, res){
+			if(err != null)
+				callback(err, null);
+				else{
+					// 	console.log(res.rows);
+					callback(null, res.rows);
+				}
+		});
+	},
+
+	addStaff: function(pass, email, name, phone,callback){
+		pool.query("insert into users values (default, $1::text, $2::text, $3::text, $4::text,'User.png', 1, 1)", [pass, email, name, phone],
+			function(err, res){
+				if(err != null)
+					callback(err, null);
+					else{
+						callback(null, res.rows);
+					}
+			});
+	},
+
+	blockUser: function(userID, callback){
+		pool.query("update users set state = 0 where userID = $1::int", [userID], function(err, res){
+				if(err != null){
+					console.log(userID);
+					callback(err, null);
+				}
+				else{
+					callback(null, res.rows);
+				}
+		});
 	}
 }
 

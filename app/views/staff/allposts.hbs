@@ -1,0 +1,91 @@
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+          All Posts
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-users"></i> Post Management
+            </li>
+            <li class="active">
+              <a href="#"><i class="fa fa-list"></i> All Posts</a>
+            </li>
+        </ol>
+        <div class="">
+          {{#each newposts}}
+          <div class="col-md-6 col-xs-12">
+            <div class="posts ">
+              <center>
+                <br>
+                <img src="images/{{this.picid}}" style="width:50%; height:250px;"alt="">
+              </center>
+              <div class="setPost">
+                <ul>
+                  <br>
+                  <li><b>Product ID:</b> {{this.productid}}</li>
+                  <li><b>Product's name:</b> {{this.prname}}</li>
+                  <li style="">
+                        <b>Description:</b> {{this.description}}
+                  </li>
+                  <li><b>Price:</b> {{this.price}}</li>
+                  <li><b>Quantity:</b> {{this.quantity}}</li>
+                  <li><b>Salesman:</b> {{this.uname}}</li>
+                  <li><b>Product Type:</b> {{this.typename}}</li>
+                  <li><b>Time:</b> {{this.time}}</li>
+                  <li><b>Brand:</b> {{this.brandname}}</li>
+                  <br>
+                  <li> <a href="/postDetails/{{this.productid}}"><b>Details</b></a></li>
+                  <br>
+                    &nbsp &nbsp &nbsp   &nbsp &nbsp  &nbsp
+                    <button id="btnOK" type="button" onclick="checkPost({{this.productid}}, true)" name="button">OK</button>
+                    &nbsp &nbsp &nbsp
+                    <button id="btnCancel" type="button" onclick="checkPost({{this.productid}}, false)" name="button">Cancel</button>
+                </ul>
+              </div>
+            </div>
+            <br>
+          </div>
+          {{/each}}
+          {{#each posts}}
+          <div class=" col-md-6 col-xs-12">
+            <div class="posts_old ">
+              <center>
+                <br>
+                <img src="images/{{this.picid}}" style="width:50%;height:250px;"alt="">
+              </center>
+              <div class="setPost">
+                <ul>
+                  <br>
+                  <li><b>Product ID:</b> {{this.productid}}</li>
+                  <li><b>Product's name:</b> {{this.prname}}</li>
+                  <li style="">
+                        <b>Description:</b> {{this.description}}
+                  </li>
+                  <li><b>Price:</b> {{this.price}}</li>
+                  <li><b>Quantity:</b> {{this.quantity}}</li>
+                  <li><b>Salesman:</b> {{this.uname}}</li>
+                  <li><b>Product Type:</b> {{this.typename}}</li>
+                  <li><b>Time:</b> {{this.time}}</li>
+                  <li><b>Brand:</b> {{this.brandname}}</li>
+                  <li><b>Employee:</b> {{this.ename}}</li>
+                  <br>
+                  <li> <a href="/postDetails/{{this.productid}}"><b>Details</b></a></li>
+                  <br>
+                  {{#compare this.state '==' "1"}}
+                      <p style="color:blue">Already checked</p>
+                  {{/compare}}
+                  {{#compare this.state '==' "-1"}}
+                      <p style="color:red">Already canceled</p>
+                  {{/compare}}
+                </ul>
+            </div>
+          </div>
+          <br>
+          </div>
+				{{/each}}
+        </div>
+    </div>
+</div>
+
+<script src="/js/uncheckPosts.js"></script>
