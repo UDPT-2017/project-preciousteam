@@ -5,17 +5,17 @@ $(document).ready(function() {
 	  {
 	  	let originPrice = ($('.price').eq(i)).text();
 	  	let percent = ($('.dis').eq(i)).text();
-	  	let price = originPrice * ($('.quan').eq(i)).text() - (originPrice * percent)/100;
+	  	let price = originPrice * ($('.quan').eq(i)).text() *(1 - (percent/100));
 	  	($('.item_price').eq(i)).text(price);
 	  	total += price;
 
 	  }
-	  total = "Total: $" + total;
-	  $('.total-price').text(total);
+	  $('.total-price').append(total);
 
 		  $(".close1").bind("click", function(Event){
 		  	const ele = $(this).parent().parent();
 		  	const index = $('.close1').index($(this));
+		  	const subtotal = (ele.find(".item_price")).text();
 		  	swal({
 			  	title: "Wait!!",
 			  	text: "Are you sure you want to delete this item??",
@@ -37,6 +37,9 @@ $(document).ready(function() {
 								  	ele.fadeOut('slow', function(Event){
 										$(this).remove();
 									});
+								  	total = $('.total-price').text().substr(9, 12);
+								  	total = total - subtotal;
+								  	$('.total-price').text("Total: $ " + total);
 								}
 								else
 								{
@@ -78,6 +81,8 @@ $(document).ready(function() {
 				if (data.localeCompare("1") == 0)
 					{
 						swal("Success!", "Order successfully!", "success")
+						$('tr').not('#index').remove();
+						$('.total-price').text("Total: $0");
 					}
 				else
 					{
