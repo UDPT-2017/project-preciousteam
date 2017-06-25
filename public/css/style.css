@@ -998,7 +998,6 @@ ul.product-qty {
     color: #B3B3B3;
     font-size: 0.9em;
     line-height: 2em;
-    padding: 0 0 1em;
 }
 .facts ul li {
     list-style: none;
@@ -2394,7 +2393,7 @@ td.add-check a {
 }
 .cmnt-icon-right p {
 	color: #858d94;
-	margin: 0 0 .5em 0;
+	margin: 0 0 1px 0;
 	text-align: left;
 	font-size: 13px;
 	width: 100%;
@@ -2660,4 +2659,26 @@ button {
 .right {
 	float: right;
 	margin-left: 20px;
+}
+
+.nopad {
+	padding: 0 !important;
+}
+
+.mid-popular h3{
+	font-size: 2.5em;
+    color: #000000;
+    line-height: 1.8em;
+    font-family: 'Ubuntu-Regular';
+	text-align:center;
+}
+
+.imgFas {
+	height: 300px;
+	width: 250px;
+}
+
+.cmtPic {
+	height: 70px;
+	width: 70px;
 }

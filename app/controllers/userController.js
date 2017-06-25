@@ -1,3 +1,5 @@
+const Cart = require('../models/cart')
+
 
 const userController  = {
 	index: function(req, res){
@@ -11,10 +13,22 @@ const userController  = {
 		});
 	},
 	cart: function(req, res){
-		res.render('user-cart', {
-			active_cart: "active",
-			user: req.user
-		});
+		const user = req.user;
+		Cart.getAllItems(user.userid, function(err, ress){
+			if (err != null)
+			{
+				console.log(err);
+			}
+			else
+			{
+				res.render('user-cart', {
+					active_cart: "active",
+					user: user,
+					products: ress
+				});
+			}
+		})
+		
 	},
 	posts: function(req, res){
 		res.render('posts', {
