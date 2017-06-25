@@ -19,39 +19,40 @@
 	    <table class=" table tab-border hover" id="inboxTable" cellspacing="0" width="100%">
 	    	<thead>
 	    		<tr>
-	                <th>Sender</th>
-	                <th>Content</th>
+	                <th>Item</th>
+	                <th>Price</th>
+	                <th>Quantity</th>
 	                <th>Time</th>
             	</tr>
 	    	</thead>
 	        <tbody>
-	        {{#each messages}}
-	        	{{#if this.readtime}}
-	        		 <tr class="table-row">
-		                <td>
-		                	{{this.sender}}
-		                </td>
-		                <td>
-		                    {{this.content}}
-		                </td>
-		                <td>
-		                    {{this.senttime}}
-		                </td>
-		            </tr>
-	        	{{else}}
-				 <tr class="table-row highlight">
-	                <td>
-	                	{{this.sender}}
-	                </td>
-	                <td>
-	                    {{this.content}}
-	                </td>
-	                <td>
-	                    {{this.senttime}}
-	                </td>
-	            </tr>
-	            {{/if}}
+	        {{#each products}}
+	        	<tr class="cart-header">
+
+				<td class="ring-in"><a href="/single/{{this.productid}}" class="at-in"><img src="../images/{{this.picid}}" class="img-responsive" alt=""></a>
+				<div class="sed">
+					<h5><a href="/single/{{this.productid}}">{{this.name}}</a></h5>
+					<span class="hidden">{{this.productid}}</span>
+				</div>
+				<div class="clearfix"> </div>
+				<div class="close1"> </div></td>
+				<td class="price">{{this.price}}</td>
+				<td class="quan">{{this.quantity}}</td>
+				<td class="time">{{this.time}}</td>
+			  </tr>
 	        {{/each}}
+	        <script>
+				$(document).ready(function() {
+					const comNum = $('.time').length;
+					for (let i = 0; i<comNum; i++)
+						{
+							let curTime = ($('.time').eq(i)).text();
+							let distance = moment(curTime).fromNow();
+							($('.time').eq(i)).text(distance);
+						}
+					})
+								 
+			</script>
 	        </tbody>
 	    </table>
 
@@ -69,5 +70,8 @@
     	"paging": true,
     	"pagingType": "full_numbers"
     });
-});
+
+    
+})
 </script>
+<script src="../js/post.js"></script>

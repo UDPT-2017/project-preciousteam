@@ -1,4 +1,5 @@
 const Cart = require('../models/cart')
+const Product = require('../models/product')
 
 
 const userController  = {
@@ -31,10 +32,23 @@ const userController  = {
 		
 	},
 	posts: function(req, res){
-		res.render('posts', {
-			active_post: "active",
-			user: req.user
-		});
+		const user = req.user;
+		Product.getAllPostsOf(user.userid, function(err, ress){
+			if (err != null)
+			{
+				console.log(err);
+				res.end('0');
+			}
+			else
+			{
+				res.render('posts', {
+					active_post: "active",
+					user: user,
+					products: ress
+				});
+			}
+		})
+		
 	},
 	createpost: function(req, res){
 		res.render('createpost', {

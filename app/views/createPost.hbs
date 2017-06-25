@@ -2,16 +2,23 @@
 	{{> user}}
 	<div class="col-md-8 col-sm-12 col-xs-12 compose">
 		<div class="info">
-				<h2 class="usertitle">Add new product</h2>
+		<h2 class="usertitle">Add new product</h2>
+		<form id="addProductForm" enctype="multipart/form-data" method="post" action="/createPost">
 				<p>Product Name</p>
 				<div class="login-mail">
-					<input type="text" required="">
+					<input type="text" id="productName" required="">
 					<i  class="glyphicon glyphicon-user"></i>
 				</div>
 				<p>Quantity</p>
 				<div class="login-mail">
 
-					<input type="number" id="PQ" min="1" name="mCy" id="MC">
+					<input type="number" id="productQuan" required="">
+					<i  class="glyphicon glyphicon-phone"></i>
+				</div>
+				<p>Price</p>
+				<div class="login-mail">
+
+					<input type="number" id="productPrice" required="">
 					<i  class="glyphicon glyphicon-phone"></i>
 				</div>
 				<p>Category</p> 
@@ -19,6 +26,7 @@
 						<div class="col-md-4 col-sm-6 proInfo">
 							<p id="fasTit">Fashion</p>
 							<select class="selectpicker" id="fashion">
+									<optgroup label="none"><option>none</option></optgroup>
 									<optgroup label="Male" id="male">
 										<option>Jackets</option>
 										<option>Bombers</option>
@@ -48,6 +56,7 @@
 						<div class="col-md-4 col-sm-6 proInfo">
 							<p id="makeTit">Makeup</p>
 							<select class="selectpicker" id="makeup">
+									<optgroup label="none"><option>none</option></optgroup>
 									<optgroup label="Male" id="male">
 										<option>Jackets</option>
 										<option>Bombers</option>
@@ -77,6 +86,7 @@
 						<div class="col-md-4 col-sm-6 proInfo">
 							<p id="skinTit">Skincare</p>
 							<select class="selectpicker" id="skincare">
+									<optgroup label="none"><option>none</option></optgroup>
 									<optgroup label="Male" id="male">
 										<option>Jackets</option>
 										<option>Bombers</option>
@@ -107,26 +117,135 @@
 					
 				<p>Description</p>
 				<div class="login-mail">
-					<textarea class="des"></textarea>
+					<textarea class="des" required="" id="productDescription"></textarea>
 				</div>
 				<p>Brand</p>
 				<div class="login-mail">
-					<input type="text" required="">
+					<input type="text" required="" id="productBrand">
 				</div>
+				<p>Product Pictures:</p>
+
+					<img class="productPic" height="300" width="250" id="product1" src="" alt="product-image"/>
+					<input class="productbtn" id="image1" type="file" name="productPhoto" placeholder="Photo" required="">
+
+
+					<img class="productPic" height="300" width="250" id="product2" src="" alt="product-image"/>
+					<input class="productbtn" id="image2" type="file" name="productPhoto" placeholder="Photo">
+
+					<img class="productPic" height="300" width="250" id="product3" src="" alt="product-image"/>
+					<input class="productbtn" id="image3" type="file" name="productPhoto" placeholder="Photo">
+
+
 				<label class="hvr-skew-backward right">
-					<button value="login" id="log-in">Done</button>
+					<input type="submit" value="Done"  id="smit">
 				</label>
+		</form>
+				
+				
+
+				
+
+
 		</div>
 
 	</div>
 </div>
-<script>
-$(function() {
+<script type="text/javascript">
+ $(document).ready(function() {
+ 	let optgroup;
+ 	let selected_value;
 
-  $('#fashion').on('change', function(){
-    var selected = $(this).find("option:selected").val();
-    alert(selected);
-  });
-  
+ 	function readURL(input, element) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            element.attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#image1").change(function(){
+    readURL(this, $('#product1'));
+})
+$("#image2").change(function(){
+    readURL(this, $('#product2'));
 });
+$("#image3").change(function(){
+    readURL(this, $('#product3'));
+});
+
+     $('#addProductForm').submit(function(e) {
+     	e.preventDefault();
+     			if (selected_value == undefined)
+     			{
+     				 swal({
+                            title: "Oops!!",
+                            text: "Product type can't be empty",
+                            type: "error",
+                            confirmButtonText: "Try again",
+                            confirmButtonColor: "#DD6B55"
+                            });
+                
+     			}
+     			else
+     			{
+     				$(this).ajaxSubmit({
+                    type: 'POST',
+                    url: '/createPost',
+                    data: {name: $('#productName').val(),
+                    	quan: $('#productQuan').val(),
+                    	description: $('#productDescription').val(),
+                    	brand: $('#productBrand').val(),
+                    	category: optgroup,
+                    	producttype: selected_value,
+                    	price: $('#productPrice').val()
+                    }, 
+                    error: function(xhr) {
+                            alert('Error: ' + xhr.status);
+                    },
+                    success: function(data) {
+                        if (data.localeCompare('1') === 0)
+                        {
+                            swal("Success!", "Add product successfully", "success");
+                        }
+                        else if (data.localeCompare('0') === 0)
+                        {
+                            //show 500 error   
+                        }
+                    }
+                });
+     			 
+     			}
+               
+                return false;
+}) ;
+
+$('select.selectpicker').on('change', function(e){
+    var picker_id=e.target.id;
+    var selected_option = $(this).find(":selected"); // get selected option for the changed select only
+    selected_value = selected_option.val();
+    optgroup = selected_option.parent().attr('label');
+    
+
+    //alert(selected_value);
+    if (selected_value.localeCompare("none") !== 0)
+    {
+
+    	$('select.selectpicker').not(this).attr("disabled", true);
+    	$('select.selectpicker').not(this).selectpicker('refresh');
+
+    }
+    else
+    {
+
+    	$('select.selectpicker').not(this).attr("disabled", false);
+    	$('select.selectpicker').not(this).selectpicker('refresh');
+    }
+}); 
+
+ })
 </script>
