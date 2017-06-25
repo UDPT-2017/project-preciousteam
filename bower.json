@@ -20,6 +20,11 @@
     "sweetalert": "^1.1.3",
     "datatables.net": "^1.10.15",
     "datatables.net-dt": "^3.2.2",
-    "bootstrap-select": "^1.12.2"
+    "bootstrap-select": "^1.12.2",
+    "jquery-form": "^4.2.1",
+    "twbs-pagination": "^1.4.1",
+    "ez-plus": "^1.2.1",
+    "moment": "^2.18.1",
+    "filereader": "*"
   }
 }

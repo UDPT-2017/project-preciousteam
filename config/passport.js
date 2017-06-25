@@ -8,7 +8,7 @@ module.exports = function(passport) {
     });
 
     passport.deserializeUser(function(id, done) {
-        User.findUser(id, function(err, user){
+        User.findUser(id, 1, function(err, user){
             if (err !== null)
             {
                 console.log(err);
@@ -27,7 +27,7 @@ passport.use('local-login', new LocalStrategy(  {
     },
     function (req, email, password, done) {
 
-        User.getUser(email, password, function(err, users){
+        User.getUser(email, password, 1, function(err, users){
                 if (err) { 
                     console.log(err);
                     return done(err); }
