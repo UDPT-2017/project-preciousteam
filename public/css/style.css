@@ -1041,9 +1041,6 @@ nav.nav-sidebar {
 	color: #F67777;
     font-size: 1em;
 }
-<<<<<<< HEAD
-.login-mail input[type="text"],.login-mail input[type="password"], .login-mail input[type="number"], .login-mail textarea, .login-mail input[type="email"]{
-=======
 
 .login-mail select{
   border: none;
@@ -1055,7 +1052,6 @@ nav.nav-sidebar {
 }
 
 .login-mail input[type="text"],.login-mail input[type="password"], .login-mail input[type="number"],.login-mail input[type="email"], .login-mail textarea, input[type="date"]{
->>>>>>> a1dc9e8ef5f2ee0f69fa91ff45547e57415a6789
 	border: none;
 	outline:none;
 	font-size: 0.9em;
