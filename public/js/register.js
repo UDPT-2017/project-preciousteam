@@ -1,19 +1,43 @@
-const FileReader = require('filereader');
-$(document).ready(function(){
-        $("#image").click(function(){
-        alert('huchuc');
-        //other uploading proccess [server side by ajax and form-data ]
-    });
+var errror = false;
+ $(document).ready(function() {
 
-    $("#image").change(function(){
-        alert('huchuc');
-        readURL(this);
-        //other uploading proccess [server side by ajax and form-data ]
-    });
-
-    $('#smit').click(function(){
-    alert('huchuc');
-});
+     $('#signUpForm').submit(function(e) {
+                 e.preventDefault();
+                $(this).ajaxSubmit({
+                    type: 'POST',
+                    data: {
+                        "name": $('#name').val(),
+                        "tel": $('#tel').val(),
+                        "email": $('#email').val(),
+                        "pass": $('#pass').val()
+                    },
+                    error: function(xhr) {
+                            status('Error: ' + xhr.status);
+                    },
+                    success: function(data) {
+                        if (data.localeCompare('1') === 0)
+                        {
+                            window.location = '/activateAnnounce';
+                        }
+                        else if (data.localeCompare('0') === 0)
+                        {
+                            //show 500 error   
+                        }
+                        else if (data.localeCompare('-1') === 0)
+                        {
+                             swal({
+                            title: "Oops!!",
+                            text: "Email has been used!!",
+                            type: "error",
+                            confirmButtonText: "Try again",
+                            confirmButtonColor: "#DD6B55"
+                            });
+                        }
+                    }
+                });
+                return false;
+}) 
+ });
 
 function readURL(input) {
     alert('hehe');
@@ -33,5 +57,4 @@ function readURL(input) {
             reader.readAsDataURL(input.files[0]);
         }
     }
-}
 

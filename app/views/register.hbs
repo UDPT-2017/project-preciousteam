@@ -1,21 +1,23 @@
 <div class="container">
 		<div class="login">
-			<form action="#" method="post">
+			<form id="signUpForm"
+          enctype="multipart/form-data"
+          method="post">
 			<div class="col-md-6 login-do">
 			<div class="login-mail">
-					<input type="text" placeholder="Name" required="">
+					<input type="text" placeholder="Name" required="" id="name">
 					<i  class="glyphicon glyphicon-user"></i>
 				</div>
 				<div class="login-mail">
-					<input type="text" placeholder="Phone number" required="">
+					<input type="text" placeholder="Phone number" required="" id="tel">
 					<i  class="glyphicon glyphicon-phone"></i>
 				</div>
 				<div class="login-mail">
-					<input type="text" placeholder="Email" required="">
+					<input type="email" placeholder="Email" required="" id="email">
 					<i  class="glyphicon glyphicon-envelope"></i>
 				</div>
 				<div class="login-mail">
-					<input type="password" placeholder="Password" required="">
+					<input type="password" placeholder="Password" required="" id="pass">
 					<i class="glyphicon glyphicon-lock"></i>
 				</div>
 
@@ -23,9 +25,10 @@
 			</div>
 			<div class="col-md-6 login-do">
 				<img height="100" width="100" id="profile" src="" alt="profile-image"/>
-				<input id="image" type="file" name="profile_photo" placeholder="Photo" required="">
+				<input id="image" type="file" name="userPhoto" placeholder="Photo" required="">
 				<label class="hvr-skew-backward">
 					<input type="submit" value="Submit"  id="smit">
+					<span id = "status"></span>
 				</label>
 
 			</div>
@@ -35,5 +38,4 @@
 		</div>
 
 </div>
-
-<script src="js/register.js"></script>
+<script src="../js/register.js"></script>

@@ -998,7 +998,6 @@ ul.product-qty {
     color: #B3B3B3;
     font-size: 0.9em;
     line-height: 2em;
-    padding: 0 0 1em;
 }
 .facts ul li {
     list-style: none;
@@ -1042,7 +1041,7 @@ nav.nav-sidebar {
 	color: #F67777;
     font-size: 1em;
 }
-.login-mail input[type="text"],.login-mail input[type="password"], .login-mail input[type="number"], .login-mail textarea{
+.login-mail input[type="text"],.login-mail input[type="password"], .login-mail input[type="number"], .login-mail textarea, .login-mail input[type="email"]{
 	border: none;
 	outline:none;
 	font-size: 0.9em;
@@ -1050,7 +1049,7 @@ nav.nav-sidebar {
     width: 95%;
     resize: none;
 }
-.login-do input[type="submit"]{
+.login-do input[type="submit"], .login-do input[type="button"]{
 	border: none;
     outline: none;
     font-size: 1em;
@@ -1254,6 +1253,13 @@ nav.nav-sidebar {
     color: #F67777;
     font-family: 'Ubuntu-Regular';
 }
+
+.four h4{
+	font-size: 4em;
+    color: #F67777;
+    font-family: 'Ubuntu-Regular';
+}
+
 .four p{
 	font-size: 0.9em;
     color: #B3B3B3;
@@ -2387,7 +2393,7 @@ td.add-check a {
 }
 .cmnt-icon-right p {
 	color: #858d94;
-	margin: 0 0 .5em 0;
+	margin: 0 0 1px 0;
 	text-align: left;
 	font-size: 13px;
 	width: 100%;
@@ -2447,6 +2453,7 @@ td.add-check a {
 .mailer-name {
     float: left;
     width: 70%;
+    margin-left: 10%;
     margin-top: 1.4em;
 }
 .mailer-name h5 {
@@ -2652,4 +2659,40 @@ button {
 .right {
 	float: right;
 	margin-left: 20px;
+}
+
+.nopad {
+	padding: 0 !important;
+}
+
+.mid-popular h3{
+	font-size: 2.5em;
+    color: #000000;
+    line-height: 1.8em;
+    font-family: 'Ubuntu-Regular';
+	text-align:center;
+}
+
+.imgFas {
+	height: 300px;
+	width: 250px;
+}
+
+.cmtPic {
+	height: 70px;
+	width: 70px;
+}
+
+.productPic {
+    width: 250px;
+    height: 300px;
+    margin-bottom: 30px;
+}
+
+.productbtn {
+	float: left;
+    width: 60%;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    margin-left: 20px;
 }

@@ -9,20 +9,36 @@ module.exports = function(app) {
 
 	app.get('/logIn', controllers.logIn.index);
 	app.post('/logIn', passport.authenticate('local-login'), function(req, res){
-        console.log(req.body);
+        
 		if (req.user != null)
         {
+        	console.log(req.body);
             req.app.locals.user = req.user;
-			res.end('/home');
+			res.send('/home');
         }
 		else
-			res.end('fail');});
+			res.send('fail');
+	});
 	app.get('/register', controllers.register.index);
 	app.get('/index', controllers.user.index);
 	app.get('/profile', controllers.user.profile);
 	app.get('/cart', controllers.user.cart);
 	app.get('/posts', controllers.user.posts);
 	app.get('/createpost', controllers.user.createpost);
+	app.post('/register', controllers.register.submit);
+	app.get('/activateAnnounce', controllers.register.activateAnnounce);
+	app.get('/activate/:userid', controllers.register.activate);
+	app.get('/activatePage/:userid', controllers.register.activateSuccess);
+	app.get('/product/:catename', controllers.product.index);
+	app.get('/single/:productid', controllers.product.detail);
+	app.post('/add2Cart', controllers.cart.add);
+	app.post('/deleteItem', controllers.cart.delete);
+	app.post('/checkout', controllers.cart.checkout);
+	app.post('/addReview', controllers.product.addReview);
+	app.post('/createPost', controllers.product.createPost);
+	app.post('/logOut', controllers.logIn.logOut);
+	app.post('/deletePost', controllers.product.deleteProduct);
+	app.post('/updateProfile', controllers.user.updateUser);
 
 	app.get('/homeAdmin', controllers.admin.index);
 	app.get('/addStaff', controllers.admin.addStaff);
