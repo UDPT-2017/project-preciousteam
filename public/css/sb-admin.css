@@ -404,3 +404,20 @@ h1{
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+/*--404--*/
+.four{
+	padding:5em 0;
+	text-align:center;
+}
+.four h3{
+	font-size: 7em;
+    color: #F67777;
+    font-family: 'Ubuntu-Regular';
+}
+.four p{
+	font-size: 0.9em;
+    color: #B3B3B3;
+    line-height: 1.8em;
+    margin: 0 0 1.5em;
+}

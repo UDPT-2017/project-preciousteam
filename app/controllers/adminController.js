@@ -4,7 +4,7 @@ let user = {
 	email: 'phuongthanh@gmail.com',
 	name: 'Phương Thanh',
 	phone: '0123547863',
-	type:'0',
+	type:'1',
 	state: '1'
 };
 
@@ -16,6 +16,16 @@ const adminController = {
 				active_dashboard: 'active',
 				tit: 'Admin Home',
 				username: user.name,
+			});
+		}
+		else if(user.type === '1'){
+			res.render('401',{
+				layout: 'applicationStaff',
+				username: user.name
+			});
+		}
+		else{
+			res.render('401',{
 			});
 		}
 	},
@@ -30,10 +40,19 @@ const adminController = {
 				username: user.name,
 	    });
 		}
+		else if(user.type === '1'){
+			res.render('401',{
+				layout: 'applicationStaff',
+				username: user.name
+				});
+		}
+		else{
+			res.render('401',{
+				});
+		}
 	},
 
 	createStaff: function(req, res){
-		if(user.type==='0'){
 			User.checkUser(req.body.email, function(err, result){
 					if(err != null){
 						res.end('0');
@@ -54,7 +73,6 @@ const adminController = {
 						}
 					}
 				});
-		}
 	},
 
 	staffList: function(req, res){
@@ -68,6 +86,16 @@ const adminController = {
 					username: user.name,
 		    });
 			});
+		}
+		else if(user.type === '1'){
+			res.render('401',{
+				layout: 'applicationStaff',
+				username: user.name
+				});
+		}
+		else{
+			res.render('401',{
+				});
 		}
 	},
 
