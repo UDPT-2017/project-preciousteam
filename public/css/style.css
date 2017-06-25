@@ -1049,7 +1049,7 @@ nav.nav-sidebar {
     width: 95%;
     resize: none;
 }
-.login-do input[type="submit"]{
+.login-do input[type="submit"], .login-do input[type="button"]{
 	border: none;
     outline: none;
     font-size: 1em;
