@@ -24,6 +24,7 @@
     "jquery-form": "^4.2.1",
     "twbs-pagination": "^1.4.1",
     "ez-plus": "^1.2.1",
-    "moment": "^2.18.1"
+    "moment": "^2.18.1",
+    "filereader": "*"
   }
 }

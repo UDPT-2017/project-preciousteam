@@ -2682,3 +2682,17 @@ button {
 	height: 70px;
 	width: 70px;
 }
+
+.productPic {
+    width: 250px;
+    height: 300px;
+    margin-bottom: 30px;
+}
+
+.productbtn {
+	float: left;
+    width: 60%;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    margin-left: 20px;
+}

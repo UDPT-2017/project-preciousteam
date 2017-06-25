@@ -1,4 +1,6 @@
 const Product = require('../models/product.js');
+const multer = require('multer');
+const storage = require('../../config/upload');
 
 const productController = {
 	index: function(req, res){
@@ -77,6 +79,49 @@ const productController = {
 			}
 
 	})
+	},
+	createPost: function(req, res){
+		const upload = multer({ storage : storage}).array('productPhoto', 3);
+		upload(req,res,function(err) {
+			const album = req.files;
+			console.log(album);
+			console.log(req.body);
+			Product.addProduct(req.body.name, req.body.description, req.body.price, req.body.quan, req.user.userid, req.body.producttype, req.body.brand, req.body.category, 
+			function(err1, ress){
+				if (err1 != null)
+				{
+					console.log(err1);
+					res.end('0');
+				}
+				else
+				{
+					let productid = ress[0].productid;
+					Product.insertImages(album, productid,
+					function(err2, ress1){
+						if (err2 != null)
+						{
+							console.log(err2);
+							res.end('0')
+						}
+						else
+							res.end('1');
+					})
+				}
+			});
+		})
+	},
+	deleteProduct: function(req, res){
+		Product.deleteProduct(req.body.productid, function(err, ress){
+			if (err != null)
+			{
+				console.log(err);
+				res.end('0');
+			}
+			else
+			{
+				res.end('1');
+			}
+		})
 	}
 };
 

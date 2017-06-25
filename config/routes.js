@@ -34,9 +34,10 @@ module.exports = function(app) {
 	app.post('/add2Cart', controllers.cart.add);
 	app.post('/deleteItem', controllers.cart.delete);
 	app.post('/checkout', controllers.cart.checkout);
-	app.post('/addReview', controllers.product.addReview)
-
+	app.post('/addReview', controllers.product.addReview);
+	app.post('/createPost', controllers.product.createPost);
 	app.post('/logOut', controllers.logIn.logOut);
+	app.post('/deletePost', controllers.product.deleteProduct);
 
 	app.get('/homeAdmin', controllers.admin.index);
 	app.get('/addStaff', controllers.admin.addStaff);
