@@ -54,20 +54,20 @@ Làm việc nhóm:
 	- Người đăng sẽ tự liên lạc với người đặt mua để giao hàng.
   
  * Quy trình duyệt bài:
-  - Xem danh sách bài đăng của người dùng
-  - Chọn OK hoặc Cancel để duyệt bài được đăng hay không
+	  - Xem danh sách bài đăng của người dùng
+	  - Chọn OK hoặc Cancel để duyệt bài được đăng hay không
  
  * Gửi tin nhắn cho trang:
-  - Vào trang contact
-  - Nhập thông tin
-  - Gửi tin nhắn
+	  - Vào trang contact
+	  - Nhập thông tin
+	  - Gửi tin nhắn
   
  * Quản lý nhân viên:
-  - Thêm nhân viên mới
-  - Khóa tài khoản nhân viên
+	  - Thêm nhân viên mới
+	  - Khóa tài khoản nhân viên
   
  * Quản lý khách hàng:
-  - Khóa tài khoản khách hàng.
+  	- Khóa tài khoản khách hàng.
  
 ## Lập trình server
 ### MVC
