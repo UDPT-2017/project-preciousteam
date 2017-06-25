@@ -56,6 +56,33 @@ const User = {
 				callback(null, res.rows);
 			}
 		});
+	},
+	update: function(tel, pass, profilepic, userid, callback){
+		if (profilepic != null)
+		{
+			pool.query("update users set (pass, phone, profilepic) = ($1::text, $2::text, $4::text) where userid = $3::int", [pass, tel, userid, profilepic],
+			function(err, res){
+				if (err != null){
+					callback(err, null);
+				}
+				else {
+					callback(null, res.rows);
+				}
+			})
+		}
+		else
+		{
+			pool.query("update users set (pass, phone) = ($1::text, $2::text) where userid = $3::int", [pass, tel, userid],
+			function(err, res){
+				if (err != null){
+					callback(err, null);
+				}
+				else {
+					callback(null, res.rows);
+				}
+			})
+		}
+		
 	}
 }
 
