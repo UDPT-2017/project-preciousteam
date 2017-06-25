@@ -6,8 +6,8 @@ Thành viên:
 * [ ] **1412520** - Nguyễn Hoàng Thi - thikhin96 - nghoangthi1@gmail.com 
 * [ ] **1412503** - Nguyễn Thị Thanh Thảo - thaonguyen1096 - thaonguyen1096@gmail.com
 
-URL: **URL hosting của đề tài**
-Báo cáo: **https://udpt-2017.github.io/project-preciousteam/**
+* URL: **URL hosting của đề tài**
+* Báo cáo: **https://udpt-2017.github.io/project-preciousteam/**
 
 ## Yêu cầu
 
@@ -30,7 +30,7 @@ Làm việc nhóm:
 * Quy trình chỉnh sửa thông tin cá nhân:
   - Chọn chỉnh sửa thông tin cá nhân
   - Thay đổi thông tin
-  - Lưu thay đổi (nếu cập nhật email thì phải xác nhận qua email)
+  - Lưu thay đổi
   
 * Quy trình đăng bài:
 	- Đăng nhập. Nếu chưa có tài khoản thì phải đăng ký
@@ -78,7 +78,7 @@ Làm việc nhóm:
 
 ### Lập trình dữ liệu
 * [x] Thêm (MSSV1)
-* [x] Xóa (MSSV1)
+* [ ] Xóa (MSSV1)
 * [x] Sửa (MSSV1)
 * [x] Tìm kiếm (MSSV1)
 
@@ -101,7 +101,7 @@ Liệt kê các API nhóm đã sử dụng được ở đây
 * [x] AJAX (MSSV1)
 
 ## Bảo mật
-* [ ] Chứng thực (MSSV1)
+* [x] Chứng thực (MSSV1)
 * [x] Phân quyền sử dụng một số trang web với nhiều vai trò khác nhau (MSSV1)
    * [x] Không cho phép thao tác vào trang web khi không có quyền (MSSV1)
    * [x] Thể hiện các chức năng khác nhau trên cùng giao diện khi người dùng có quyền khác nhau (MSSV1)
@@ -112,17 +112,23 @@ Liệt kê các API nhóm đã sử dụng được ở đây
 
 ## Chức năng đã thực hiện
 Các **yêu cầu chức năng**
+* [x] Xây dựng và cài đặt cơ sở dữ liệu với postgres
 * [x] Trang chủ khách hàng được thiết kế sẽ bao gồm các trang: home, fashion, about, contact
-* [x] Website layout theo kiến trúc MVC 
+* [x] Website layout theo kiến trúc MVC , config, layout and partial
 * [x] Cho phép người dùng biết họ đang ở trang nào (sử dụng breadcrumb, highlight navigation bar,...)
+* [x] Trang chủ admin được thiết kế sẽ bao gồm các trang: dashboard, order list staff management, customer management, mailbox
+* [x] Xây dựng trang báo lỗi 401, 404, 500
 * [x] Cho phép người dùng đăng ký/đăng nhập bằng email
-* [x] 
-* [x] 
-* [x] 
-* [x] Trang chủ admin được thiết kế sẽ bao gồm các trang: dashboard, order list staff management, customer management, mailbox, 
-* [x] 
-* [x] 
-* [x] 
+* [x] Xác nhận đăng ký qua email
+* [x] Xây dựng tính năng phân loại người dùng(admin/staff/customer/...)
+ 	* [x] Không cho phép thao tác vào trang web khi không có quyền 
+ 	* [x] Thể hiện các chức năng khác nhau trên cùng giao diện khi người dùng có quyền khác nhau
+ 	* [x] Thể hiện lỗi khi không truy xuất được trang khi không có quyền (Lỗi 401)
+* [x] Kiểm tra dữ liệu form thêm/sửa danh mục và sản phẩm
+* [x] Báo lỗi trong cùng trang web
+* [x] Báo lỗi trong trang web riêng: 401, 404 và 500
+* [x] Animation thông báo thêm/sửa danh mục thành công
+* [x] Ajax để thêm, sửa nhân viên, sản phẩm,...
 
 
 
