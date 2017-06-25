@@ -3,13 +3,11 @@
 **Name of your app** là repository cho đồ án nhóm. Nhóm tối đa 4 thành viên.
 
 Thành viên:
-* [ ] **MSSV1** - Tên sinh viên 1 - tên tài khoản github - email - Tỉ lệ đóng góp cho đề tài
-* [ ] **MSSV2** - Tên sinh viên 2 - tên tài khoản github - email - Tỉ lệ đóng góp cho đề tài
-* [ ] **MSSV3** - Tên sinh viên 3 - tên tài khoản github - email - Tỉ lệ đóng góp cho đề tài
-* [ ] **MSSV4** - Tên sinh viên 4 - tên tài khoản github - email - Tỉ lệ đóng góp cho đề tài
+* [ ] **1412520** - Nguyễn Hoàng Thi - thikhin96 - nghoangthi1@gmail.com 
+* [ ] **1412503** - Nguyễn Thị Thanh Thảo - thaonguyen1096 - thaonguyen1096@gmail.com
 
 URL: **URL hosting của đề tài**
-Báo cáo: **URL Github Page của đề tài**
+Báo cáo: **https://udpt-2017.github.io/project-preciousteam/**
 
 ## Yêu cầu
 
@@ -19,56 +17,113 @@ Làm việc nhóm:
 * [ ] Có sử dụng GIT.
 * [ ] Sử dụng GIT theo Centralized Workflow.
 * [ ] Sử dụng GIT theo Feature Branch Workflow.
-* [ ] Sử dụng GIT theo Gitflow Workflow.
+* [x] Sử dụng GIT theo Gitflow Workflow.
 
 ## Mô tả nghiệp vụ chung ứng dụng
-Phần mô tả đặt vào đây
+* Quy trình đăng ký tài khoản:
+  - Vào trang đăng nhập
+  - Điền thông tin cá nhân
+  - Đăng ký
+  - Người dùng nhận được mail xác nhận tài khoản và tiến hàng xác nhận
+  - Đăng ký thành công
 
+* Quy trình chỉnh sửa thông tin cá nhân:
+  - Chọn chỉnh sửa thông tin cá nhân
+  - Thay đổi thông tin
+  - Lưu thay đổi (nếu cập nhật email thì phải xác nhận qua email)
+  
+* Quy trình đăng bài:
+	- Đăng nhập. Nếu chưa có tài khoản thì phải đăng ký
+	- Đăng bài: phải có số lượng, nội dung rõ ràng (Thông tin sản phẩm, số lượng, địa chỉ, giá cả, liên lạc...).
+	- Chờ bài đăng được duyệt
+	- Khi có người dùng đặt mua, có thông báo đến người đăng tin, người đăng sẽ duyệt đơn hàng, khi đó số lượng sản phẩm sẽ giảm xuống.
+	- Người đăng có thể cập nhật số lượng sản phẩm. Nếu hết hàng, số lượng = 0 thì người dùng k thể đặt hàng được nữa.
+
+* Quy trình chỉnh sửa bài đăng:
+  - Tìm bài đăng của mình
+  - Chọn chỉnh sửa
+  - Thay đổi thông tn
+  - Lưu thay đổi
+  
+* Quy trình đặt mua:
+	- Đăng nhập. Nếu chưa có tài khoản thì phải đăng ký.
+	- Tìm kiếm, chọn sản phẩm muốn mua và chọn số lượng. Thêm vào giỏ hàng.
+	- Tiến hành đặt hàng. Mỗi đơn hàng của từng shop sẽ được tách ra riêng.
+	- Sau khi đặt hàng, có thể hủy đơn hàng 
+	- Chờ đơn hàng được xác nhận
+	- Người đăng sẽ tự liên lạc với người đặt mua để giao hàng.
+  
+ * Quy trình duyệt bài:
+  - Xem danh sách bài đăng của người dùng
+  - Chọn OK hoặc Cancel để duyệt bài được đăng hay không
+ 
+ * Gửi tin nhắn cho trang:
+  - Vào trang contact
+  - Nhập thông tin
+  - Gửi tin nhắn
+  
+ * Quản lý nhân viên:
+  - Thêm nhân viên mới
+  - Khóa tài khoản nhân viên
+  
+ * Quản lý khách hàng:
+  - Khóa tài khoản khách hàng.
+ 
 ## Lập trình server
 ### MVC
-* [ ] MVC (MSSV1)
-* [ ] Config (MSSV1)
-* [ ] REST routing (MSSV1)
-* [ ] Layout & partial (MSSV1)
+* [x] MVC (MSSV1)
+* [x] Config (MSSV1)
+* [x] REST routing (MSSV1)
+* [x] Layout & partial (MSSV1)
 
 ### Lập trình dữ liệu
-* [ ] Thêm (MSSV1)
-* [ ] Xóa (MSSV1)
-* [ ] Sửa (MSSV1)
-* [ ] Tìm kiếm (MSSV1)
+* [x] Thêm (MSSV1)
+* [x] Xóa (MSSV1)
+* [x] Sửa (MSSV1)
+* [x] Tìm kiếm (MSSV1)
 
 ### Xử lý lỗi
-* [ ] Xử lý lỗi trong cùng trang web (MSSV1)
-* [ ] Xử lý lỗi dùng trang web riêng (MSSV1)
-   * [ ] 401 (MSSV1)
-   * [ ] 404 (MSSV1)
-   * [ ] 500 (MSSV1)
+* [x] Xử lý lỗi trong cùng trang web (MSSV1)
+* [x] Xử lý lỗi dùng trang web riêng (MSSV1)
+   * [x] 401 (MSSV1)
+   * [x] 404 (MSSV1)
+   * [x] 500 (MSSV1)
 
 ### Tương tác API khác
 Liệt kê các API nhóm đã sử dụng được ở đây
 * [ ] Facebook API: mô tả (MSSV1)
-* [ ] Google API: mô tả (MSSV1)
-* [ ] ...
+* [x] Google API: mô tả (MSSV1)
 
 ## Lập trình client
-* [ ] Kiểm tra dữ liệu (MSSV1)
-* [ ] Animation (MSSV1)
-* [ ] Thao tác DOM (MSSV1)
-* [ ] AJAX (MSSV1)
+* [x] Kiểm tra dữ liệu (MSSV1)
+* [x] Animation (MSSV1)
+* [x] Thao tác DOM (MSSV1)
+* [x] AJAX (MSSV1)
 
 ## Bảo mật
 * [ ] Chứng thực (MSSV1)
-* [ ] Phân quyền sử dụng một số trang web với nhiều vai trò khác nhau (MSSV1)
-   * [ ] Không cho phép thao tác vào trang web khi không có quyền (MSSV1)
-   * [ ] Thể hiện các chức năng khác nhau trên cùng giao diện khi người dùng có quyền khác nhau (MSSV1)
-   * [ ] Thể hiện lỗi khi không truy xuất được trang khi không có quyền (MSSV1)
+* [x] Phân quyền sử dụng một số trang web với nhiều vai trò khác nhau (MSSV1)
+   * [x] Không cho phép thao tác vào trang web khi không có quyền (MSSV1)
+   * [x] Thể hiện các chức năng khác nhau trên cùng giao diện khi người dùng có quyền khác nhau (MSSV1)
+   * [x] Thể hiện lỗi khi không truy xuất được trang khi không có quyền (MSSV1)
 
 ## Nâng cao
 * [ ] ...
 
 ## Chức năng đã thực hiện
-Các **yêu cầu chức năng** (check và ghi MSSV vào các phần chức năng đã thực hiện)
-* [ ] Yêu cầu 1. (MSSV1)
+Các **yêu cầu chức năng**
+* [x] Trang chủ khách hàng được thiết kế sẽ bao gồm các trang: home, fashion, about, contact
+* [x] Website layout theo kiến trúc MVC 
+* [x] Cho phép người dùng biết họ đang ở trang nào (sử dụng breadcrumb, highlight navigation bar,...)
+* [x] Cho phép người dùng đăng ký/đăng nhập bằng email
+* [x] 
+* [x] 
+* [x] 
+* [x] Trang chủ admin được thiết kế sẽ bao gồm các trang: dashboard, order list staff management, customer management, mailbox, 
+* [x] 
+* [x] 
+* [x] 
+
 
 
 ## Demo
