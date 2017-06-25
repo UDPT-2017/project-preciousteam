@@ -89,6 +89,7 @@
 					if (data.localeCompare("1") == 0)
 					{
 						addComment(content);
+						$('#content').val("");
 					}
 					else
 					{
