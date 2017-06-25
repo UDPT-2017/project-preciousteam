@@ -31,6 +31,30 @@ const Product = {
 				callback(null, res.rows);
 			}
 		});
+	},
+	addReview: function(detail, customerid, productid, callback){
+		pool.query("insert into review values(default, $1::text, $2::int, $3::int, current_timestamp)", [detail, customerid, productid], 
+			function(err, res){
+			if (err != null){
+				console.log(err);
+				callback(err, null);
+			}
+			else {
+				callback(null, res.rows);
+			}
+		});
+	},
+	getAllReview: function(productid, callback){
+		pool.query("select detail, time, u.profilepic userPic, u.email userEmail from review r, users u where r.product = $1::int and r.customer = u.userid", [productid], 
+			function(err, res){
+			if (err != null){
+				console.log(err);
+				callback(err, null);
+			}
+			else {
+				callback(null, res.rows);
+			}
+		});
 	}
 }
 

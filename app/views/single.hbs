@@ -72,28 +72,62 @@
 
 								<div class="facts">
 									<h4 class="cate">Comments</h4>
-									<div class="comments-info">
-										<div class="cmnt-icon-left">
-											<a href="#"><img src="../images/icon3.png" alt=""/></a>
+									<div id="comment">
+										{{#each comments}}
+										<div class="comments-info">
+											<div class="cmnt-icon-left">
+												<img src="../images/{{this.userpic}}" class="cmtPic" alt=""/>
+											</div>
+											<div class="cmnt-icon-right">
+												<p>{{this.time}}</p>
+												<p>{{this.useremail}}</p>
+												<p class="cmmnt">{{this.detail}}</p>
+											</div>
+											<div class="clearfix"> </div>
 										</div>
-										<div class="cmnt-icon-right">
-											<p>MAY 13, 2015</p>
-											<p><a href="#">Admin</a></p>
-											<p class="cmmnt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-											sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-										</div>
-										<div class="clearfix"> </div>
+										{{/each}}
 									</div>
-									<h4 class="cate">Leave your comment here </h4>
-									<div class="comments-info">
-										<div class="cmnt-icon-left">
-											<a href="#"><img src="../images/icon3.png" alt=""/></a>
-
-										</div>
+									<div  id="test">
 									</div>
 									
-								 </div>	
+									{{#if user}}
+										<h4 class="cate">Leave your comment here </h4>
+										<div class="comments-info">
+											<div class="cmnt-icon-left">
+												<img src="../images/{{user.profilepic}}" alt="" class="cmtPic" id="pic"/>
 
+											</div>
+											<div class="cmnt-icon-right">
+													<p id="em">{{user.email}}</p>
+												<div class="login-mail">
+													<textarea style="height: 100px" id="content"></textarea>
+												</div>
+												
+											</div>
+							<button class="right hvr-skew-backward" id="addComment" onclick="addReview({{user.userid}}, {{product.productid}})">Comment</button>
+											<div class="clearfix"> </div>
+										</div>
+									{{/if}}
+									
+									
+								 </div>	
+								 <script>
+								 $(document).ready(function() {
+								 	let $cmt = $( "<div class='comments-info'></div>" );
+								 	let $cmtLeft = $("<div class='cmnt-icon-left'></div> ");
+								 	let $cmtRight = $("<div class='cmnt-icon-right'></div> ");
+								 	let $date = $("<p></p>");
+								 	let $uName = $("<p></p>");
+								 	let $uCon = $("<p class='cmmnt'></p>");
+								 	let $uPic = $("<img class='cmtPic'/>");
+								 	let $clear =  $( "<div class='clearfix'></div>" );
+								 	$('#comment').append($cmt);
+								 	$cmt.append($cmtLeft, $cmtRight, $clear);
+								 	$cmtLeft.append($uPic);
+								 	$cmtRight.append($date, $uName, $uCon);
+								 })
+								 
+								 </script>
  </div>
   
   </div>
@@ -167,57 +201,10 @@
 							});
 						</script>
 <!--//menu-->
- <section  class="sky-form">
-					<h4 class="cate">Discounts</h4>
-					 <div class="row row1 scroll-pane">
-						 <div class="col col-4">
-								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
-						 </div>
-						 <div class="col col-4">
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>40% - 50% (5)</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (7)</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
-						 </div>
-					 </div>
-				 </section> 				 				 
-				 
+
 					
 					 <!---->
-					 <section  class="sky-form">
-						<h4 class="cate">Type</h4>
-							<div class="row row1 scroll-pane">
-								<div class="col col-4">
-									<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Sofa Cum Beds (30)</label>
-								</div>
-								<div class="col col-4">
-									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Bags  (30)</label>
-									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Caps & Hats (30)</label>
-									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Jackets & Coats   (30)</label>
-									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Jeans  (30)</label>
-									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Shirts   (30)</label>
-									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Sunglasses  (30)</label>
-									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Swimwear  (30)</label>
-								</div>
-							</div>
-				   </section>
-				   		<section  class="sky-form">
-						<h4 class="cate">Brand</h4>
-							<div class="row row1 scroll-pane">
-								<div class="col col-4">
-									<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Roadstar</label>
-								</div>
-								<div class="col col-4">
-									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Levis</label>
-									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Persol</label>
-									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Nike</label>
-									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Edwin</label>
-									<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>New Balance</label>
-									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Paul Smith</label>
-									<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Ray-Ban</label>
-								</div>
-							</div>
-				   </section>		
+					 
 		</div>
 		<div class="clearfix"> </div>
 	</div>
@@ -236,12 +223,6 @@ $(document).ready(function() {
     animation: "slide",
     controlNav: "thumbnails"
   });
-  const picnum = $('.imgFas').length;
-  for (let i = 0; i<picnum; i++)
-  {
-  	($('.imgFas').eq(i)).ezPlus();
-  }
-
 });
 </script>
 

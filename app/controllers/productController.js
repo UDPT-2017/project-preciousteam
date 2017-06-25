@@ -43,11 +43,19 @@ const productController = {
 					else
 					{
 						console.log(pictures);
-						res.render('single', {
-							user:user,
-							pictures: pictures,
-							product: product
-						});
+						Product.getAllReview(productid, function(err1, reviews){
+							if (err1 == null)
+							{
+								console.log(reviews);
+								res.render('single', {
+									user:user,
+									pictures: pictures,
+									product: product,
+									comments: reviews
+								});
+							}
+						})
+
 					}
 
 				})
@@ -55,6 +63,20 @@ const productController = {
 			}
 		})
 
+	},
+	addReview: function(req, res){
+		Product.addReview(req.body.detail, req.body.customerid, req.body.productid, 
+			function(err, ress){
+			if (err != null)
+			{
+				console.log(err);
+			}
+			else
+			{
+				res.end('1');
+			}
+
+	})
 	}
 };
 
