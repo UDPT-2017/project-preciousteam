@@ -55,6 +55,10 @@ Các luồng xử lý chính là:
    Đối với những người dùng đã đăng nhập vào hệ thống, ở mỗi bài đăng sẽ cho phép họ điền ý kiến cá nhân về chất lượng sản phẩm, mỗi phần bình luận hiện tên, ảnh đại diện và thời gian cách đây đã bao lâu.
  * Gửi phản hồi về chất lượng sản phẩm hoặc dịch vụ cho hệ thống:
    Đối với chức năng này, người dùng không cần đăng nhâp, chỉ cần điền email và ý kiến của bản thân, sau khi hệ thống ghi nhận, admin và nhân viên có thể xem các ý kiến đóng góp này trong màn hình quản lý của họ.
+  
+  Tài khoản admin: 
+  email: admin@gmail.com
+  password: admin654321
  
 ## Lập trình server
 ### MVC
