@@ -35,7 +35,7 @@ const User = {
 	addUser: function(pass, email, name, phone, avatar, type, state, callback){
 		//const type = 2;
 		//const state = -2;
-		pool.query("INSERT INTO USERS VALUES(default, $1::text, $2::text, $3::text, $4::text, $5::text, $6::int, $7::int)", [pass, email, name, phone, avatar, type, state], 
+		pool.query("INSERT INTO USERS VALUES(default, $1::text, $2::text, $3::text, $4::text, $5::text, $6::int, $7::int)", [pass, email, name, phone, avatar, type, state],
 			function(err, res){
 			if (err != null){
 				console.log(err);
@@ -114,6 +114,20 @@ const User = {
 				else{
 					callback(null, res.rows);
 				}
+		});
+	},
+
+	findUserID: function(userID, callback){
+		pool.query("SELECT * FROM USERS WHERE userID = $1::int ", [userID], function(err, res){
+			if (err != null){
+				callback(err, null);
+			}
+			else {
+				// console.log(userID);
+				// console.log(state);
+				// console.log(res.rows);
+				callback(null, res.rows);
+			}
 		});
 	}
 }
