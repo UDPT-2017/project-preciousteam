@@ -96,7 +96,7 @@ const registerController = {
 			user: user,
 			Title: 'Activating...',
 			Content: 'Please click the button below to activate your account',
-			buttonLink: '/activate/process/' + req.params.userid,
+			buttonLink: '/activateProcess/' + req.params.userid,
 			buttonValue: 'Activate'
 			});
 	},
