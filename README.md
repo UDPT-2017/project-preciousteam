@@ -119,7 +119,7 @@ Các **yêu cầu chức năng**
 * [x] Website layout theo kiến trúc MVC , config, layout and partial
 * [x] Trang chủ khách hàng được thiết kế sẽ bao gồm các trang: home, fashion, about, contact
 * [x] Cho phép người dùng biết họ đang ở trang nào (sử dụng breadcrumb, highlight navigation bar,...)
-* [x] Trang chủ admin được thiết kế sẽ bao gồm các trang: dashboard, order list staff management, customer management, mailbox
+* [x] Trang chủ admin được thiết kế sẽ bao gồm các trang: dashboard, order list, staff management, customer management, mailbox
 * [x] Xây dựng trang báo lỗi 401, 404, 500
 #### Thao tác dữ liệu
 * [x] Thực hiện thỏa tác CRUD trên cơ sở dữ liệu
@@ -148,9 +148,6 @@ Các **yêu cầu chức năng**
  	* [x] Không cho phép thao tác vào trang web khi không có quyền 
  	* [x] Thể hiện các chức năng khác nhau trên cùng giao diện khi người dùng có quyền khác nhau
  	* [x] Thể hiện lỗi khi không truy xuất được trang khi không có quyền (Lỗi 401)
-
-
-
 
 
 ## Demo
