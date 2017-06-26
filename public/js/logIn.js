@@ -11,6 +11,7 @@ login = function(email, pass){
     $.ajax({
         type: 'POST',
         data: {"em": email, "password": pass},
+        url: '/logIn',
         success: function(data){
             window.location = data;
         },
