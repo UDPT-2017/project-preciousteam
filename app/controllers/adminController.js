@@ -21,7 +21,7 @@ const adminController = {
 					buttonValue:'Back to home'
 					});
 			}
-		else if(user.type==='0'){
+		else if(user.type===0){
 			res.render('admin/homeAdmin',{
 				layout: 'applicationAdmin',
 				active_dashboard: 'active',
@@ -29,7 +29,7 @@ const adminController = {
 				username: user.name,
 			});
 		}
-		else if(user.type === '1'){
+		else if(user.type === 1){
 			res.render('404',{
 				layout: 'applicationStaff',
 				username: user.name,
@@ -61,7 +61,7 @@ const adminController = {
 					buttonValue:'Back to home'
 					});
 			}
-		else if(user.type==='0'){
+		else if(user.type===0){
 			res.render('admin/addStaff',{
 				layout: 'applicationAdmin',
 	      active_addstaff: 'active',
@@ -70,7 +70,7 @@ const adminController = {
 				username: user.name,
 	    });
 		}
-		else if(user.type === '1'){
+		else if(user.type === 1){
 			res.render('404',{
 				layout: 'applicationStaff',
 				username: user.name,
@@ -107,7 +107,7 @@ const adminController = {
 
 	staffList: function(req, res){
 		let user = req.user;
-		if ((user == null) || (user.type == 2)) 
+		if ((user == null) || (user.type == 2))
 		{
 			res.render('404',{
 				eTitle: '401',
@@ -116,7 +116,7 @@ const adminController = {
 				buttonValue:'Back to home'
 				});
 		}
-		else if(user.type==='0'){
+		else if(user.type===0){
 			User.findUserType(1, function(err, staffs){
 				res.render('admin/staffList',{
 					layout: 'applicationAdmin',
@@ -127,7 +127,7 @@ const adminController = {
 		    });
 			});
 		}
-		else if(user.type === '1'){
+		else if(user.type === 1){
 			res.render('404',{
 				layout: 'applicationStaff',
 				username: user.name,

@@ -16,7 +16,7 @@ const logInController = {
 		if (req.user != null)
         {
             req.app.locals.user = req.user;
-			res.end('/home');
+			res.end('/homeAdmin');
         }
 		else
 			res.end('fail');

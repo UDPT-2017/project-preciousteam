@@ -1,16 +1,16 @@
-var user = {
-	userID: 1,
-	email: 'phuongthanh@gmail.com',
-	name: 'Phương Thanh',
-	phone: '0123547863',
-	type: '0',
-	state: '1',
-};
+// var user = {
+// 	userID: 1,
+// 	email: 'phuongthanh@gmail.com',
+// 	name: 'Phương Thanh',
+// 	phone: '0123547863',
+// 	type: '0',
+// 	state: '1',
+// };
 
 function checkPost(productID, btn){
       $.ajax({
       type: 'POST',
-      data: {productID:productID, userID:user.userID, btn:btn},
+      data: {productID:productID, btn:btn},
       url: '/newPosts',
       success: function(data){
         if (data.localeCompare('1') === 0)

@@ -28,9 +28,9 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-			else if(user.type === '0')  //là admin
+			else if(user.type === 0)  //là admin
 				layout = "applicationAdmin";
-			if(user.type==='1' || user.type==='0'){
+			if(user.type==='1' || user.type===0){
 				res.render('staff/homeStaff',{
 					layout: 'applicationStaff',
 					active_dashboard: 'active',
@@ -38,7 +38,7 @@ const staffController = {
 					username: user.name,
 				});
 		}
-		
+
 	},
 
 	customers: function(req, res){
@@ -60,9 +60,9 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-			else if(user.type === '0')  //là admin
+			else if(user.type === 0)  //là admin
 				layout = "applicationAdmin";
-			if(user.type==='1' || user.type==='0'){
+			if(user.type===1 || user.type===0){
 			User.findUserType(2, function(err, customers){
 				res.render('staff/customers',{
 					layout: layout,
@@ -94,10 +94,10 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-			else if(user.type === '0')  //là admin
+			else if(user.type === 0)  //là admin
 				layout = "applicationAdmin";
-		if(user.type==='1' || user.type==='0'){
-				User.findUser(req.params.id, function(err, usersDt){
+		if(user.type==='1' || user.type===0){
+				User.findUserID(req.params.id, function(err, usersDt){
 					let usertype = 'Customer';
 					let atv = new Array('active','');
 					if(usersDt[0].type==1){
@@ -139,9 +139,9 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-		else if(user.type === '0')  //là admin
+		else if(user.type === 0)  //là admin
 				layout = "applicationAdmin";
-		if(user.type==='1' || user.type==='0'){
+		if(user.type===1 || user.type===0){
 			Post.findOldPost(function(err, posts){
 				Post.findNewPost(function(err, newposts) {
 					res.render('staff/allPosts',{
@@ -150,7 +150,7 @@ const staffController = {
 						tit: 'All Posts',
 						username: user.name,
 						newposts: newposts,
-						posts:posts,
+						posts: posts,
 					});
 				});
 			});
@@ -176,9 +176,9 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-		else if(user.type === '0')  //là admin
+		else if(user.type === 0)  //là admin
 				layout = "applicationAdmin";
-		if(user.type==='1' || user.type==='0'){
+		if(user.type===1 || user.type===0){
 			Post.findNewPost(function(err, posts){
 				res.render('staff/uncheckPosts',{
 					layout: layout,
@@ -210,9 +210,9 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-			else if(user.type === '0')  //là admin
+			else if(user.type === 0)  //là admin
 				layout = "applicationAdmin";
-		if(user.type==='1' || user.type==='0'){
+		if(user.type===1 || user.type===0){
 				let visible = "hidden";
 				Post.check(req.params.id, function(errc, rsc){
 					if(rsc[0].state == 0){
@@ -269,10 +269,10 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-			else if(user.type === '0')  //là admin
+			else if(user.type === 0)  //là admin
 				layout = "applicationAdmin";
-		if(user.type==='1' || user.type==='0'){
-			User.findUser(user.userID, function(err, usersDt){
+		if(user.type===1 || user.type===0){
+			User.findUserID(user.userID, function(err, usersDt){
 				res.render('staff/editProfile',{
 					layout: layout,
 					username: user.name,
@@ -313,9 +313,9 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-			else if(user.type === '0')  //là admin
+			else if(user.type === 0)  //là admin
 				layout = "applicationAdmin";
-	 if(user.type==='1' || user.type==='0'){
+	 if(user.type===1 || user.type===0){
 		 Post.findOrder(function(err, orders){
 			 res.render('staff/orders',{
 				 layout: layout,
@@ -355,9 +355,9 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-			else if(user.type === '0')  //là admin
+			else if(user.type === 0)  //là admin
 				layout = "applicationAdmin";
-		if(user.type==='1' || user.type==='0'){
+		if(user.type===1 || user.type===0){
 			Inbox.getAllInbox(function(err, mails){
 				res.render('staff/mailbox', {
 					layout: layout,
@@ -396,7 +396,7 @@ const staffController = {
 	},
 
 	checkPost: function(req, res){
-		Post.checkPost(req.body.productID, req.body.userID, req.body.btn, function(err, result){
+		Post.checkPost(req.body.productID, req.user.userID, req.body.btn, function(err, result){
 			// console.log("do check posst controler" + req.body.productID);
 			// console.log("do check posst controler" + req.body.userID);
 			// console.log("do check posst controler" + req.body.btn);
