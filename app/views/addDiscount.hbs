@@ -1,0 +1,37 @@
+<div class="container">
+	{{> user}}
+	<div class="col-md-8 col-sm-12 col-xs-12 compose">
+		<div class="info">
+				<h2 class="usertitle">Add new discount</h2>
+				<p>Product ID &nbsp &nbsp &nbsp Product Name</p>
+        <div class="login-mail">
+          <select id = "pr" >
+            {{#each product}}
+            <option value="{{this.productid}}">{{this.productid}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {{this.name}}</option>
+            {{/each}}
+          </select>
+					<i  class="fa fa-product-hunt" ></i>
+        </div>
+				<p>Percent</p>
+				<div class="login-mail">
+					<input value='10' type="number" id="pe" min="1" name="mCy">
+					<i  class="fa fa-percent"></i>
+				</div>
+        <p>First Day</p>
+        <div class="login-mail">
+          <input type="date" id="fd">
+          <i  class="fa fa-play-circle"></i>
+        </div>
+        <p>Last Day</p>
+        <div class="login-mail">
+          <input type="date" id="ld">
+          <i  class="fa fa fa-stop-circle"></i>
+        </div>
+        <label class="hvr-skew-backward right">
+					<button value="" id="done">Done</button>
+				</label>
+		</div>
+	</div>
+</div>
+
+<script src="/js/addDiscount.js"></script>

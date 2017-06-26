@@ -24,6 +24,29 @@ const productController = {
 		})
 
 	},
+	productBasedOnType: function(req, res){
+		let user = req.user;
+		const category = req.params.catename;
+		const type = req.params.typename;
+		console.log(category + type);
+		Product.getProductBasedOnType(category, type, function(err, ress){
+			if (err != null)
+			{
+				console.log(err);
+			}
+			else
+			{
+				console.log(ress);
+				res.render('product', {
+					user:user,
+					products: ress,
+					category: category,
+
+				});
+			}
+		})
+
+	},
 	detail: function(req, res){
 		let user = req.user;
 		const productid = req.params.productid;

@@ -16,7 +16,7 @@ $(".close1").bind("click", function(Event){
 						$.ajax({
 							type: 'POST',
 							data: {productid: ($('.hidden').eq(index)).text()},
-							url: '/deletePost',
+							url: '/user/posts/deletePost',
 							success: function(data){
 								if (data.localeCompare("1") == 0)
 								{
@@ -27,6 +27,7 @@ $(".close1").bind("click", function(Event){
 								else
 								{
 									//500
+									window.location = '/404/2';
 								}
 							},
 							error: function(jqXHR, exception) {

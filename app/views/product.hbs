@@ -8,9 +8,9 @@
 						<div class="col-md-4 item-grid1 simpleCart_shelfItem">
 							<div class=" mid-pop">
 							<div class="pro-img">
-								<img src="../images/{{this.picid}}" class="img-responsive imgFas" alt="">
+								<img src="../../images/{{this.picid}}" class="img-responsive imgFas" alt="">
 								<div class="zoom-icon ">
-								<a class="picture" href="../images/{{this.picid}}" rel="title" class="b-link-stripe b-animate-go  thickbox"><i class="glyphicon glyphicon-search icon "></i></a>
+								<a class="picture" href="../../images/{{this.picid}}" rel="title" class="b-link-stripe b-animate-go  thickbox"><i class="glyphicon glyphicon-search icon "></i></a>
 								<a href="/single/{{this.productid}}"><i class="glyphicon glyphicon-menu-right icon"></i></a>
 								</div>
 							</div>
@@ -45,16 +45,7 @@
 			<div class="col-md-3 product-bottom">
 			<!--categories-->
 				<div class=" rsidebar span_1_of_left">
-						<h4 class="cate">Categories</h4>
-							 <ul class="menu-drop">
-							<li class="item1"><a href="#">Men </a>
-								<ul class="cute">
-									<li class="subitem1"><a href="product.html">Cute Kittens </a></li>
-									<li class="subitem2"><a href="product.html">Strange Stuff </a></li>
-									<li class="subitem3"><a href="product.html">Automatic Fails </a></li>
-								</ul>
-							</li>
-						</ul>
+
 					</div>
 				<!--initiate accordion-->
 						<script type="text/javascript">
@@ -85,39 +76,8 @@
 			<!--//products-->
 		<!--brand-->
 		<div class="container">
-			<div class="brand">
-				<div class="col-md-3 brand-grid">
-					<img src="../images/ic.png" class="img-responsive" alt="">
-				</div>
-				<div class="col-md-3 brand-grid">
-					<img src="../images/ic1.png" class="img-responsive" alt="">
-				</div>
-				<div class="col-md-3 brand-grid">
-					<img src="../images/ic2.png" class="img-responsive" alt="">
-				</div>
-				<div class="col-md-3 brand-grid">
-					<img src="../images/ic3.png" class="img-responsive" alt="">
-				</div>
-				<div class="clearfix"></div>
-			</div>
 			</div>
 			<!--//brand-->
 			
 			
 		</div>
-	<script type="text/javascript">
-    $(function () {
-    	const pageNum = Math.ceil({{products.length}}/9);
-    	console.log(pageNum);
-        window.pagObj = $('#pagination').twbsPagination({
-            totalPages: pageNum,
-            visiblePages: 5,
-            onPageClick: function (event, page) {
-                console.info(page + ' (from options)');
-            }
-        }).on('page', function (event, page) {
-            console.info(page + ' (from event listening)');
-        });
-        
-    });
-</script>

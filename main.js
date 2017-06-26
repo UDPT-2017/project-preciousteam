@@ -3,9 +3,11 @@
 const express = require('express');
 const app = express();
 const config = require('./config');
+const helpers = require('handlebars-helpers')();
 
 config(app);
 
-app.listen(3000, function () {
+const port = process.env.PORT || 3000;
+app.listen(port, function () {
   console.log('Example app listening on port 3000!')
 });

@@ -35,7 +35,7 @@ const User = {
 	addUser: function(pass, email, name, phone, avatar, type, state, callback){
 		//const type = 2;
 		//const state = -2;
-		pool.query("INSERT INTO USERS VALUES(default, $1::text, $2::text, $3::text, $4::text, $5::text, $6::int, $7::int)", [pass, email, name, phone, avatar, type, state], 
+		pool.query("INSERT INTO USERS VALUES(default, $1::text, $2::text, $3::text, $4::text, $5::text, $6::int, $7::int)", [pass, email, name, phone, avatar, type, state],
 			function(err, res){
 			if (err != null){
 				console.log(err);
@@ -82,7 +82,53 @@ const User = {
 				}
 			})
 		}
-		
+},
+	findUserType: function(type, callback){
+		pool.query("select userID, email, name, phone, state from users where type = $1::int", [type], function(err, res){
+			if(err != null)
+				callback(err, null);
+				else{
+					// 	console.log(res.rows);
+					callback(null, res.rows);
+				}
+		});
+	},
+
+	addStaff: function(pass, email, name, phone,callback){
+		pool.query("insert into users values (default, $1::text, $2::text, $3::text, $4::text,'User.png', 1, 1)", [pass, email, name, phone],
+			function(err, res){
+				if(err != null)
+					callback(err, null);
+					else{
+						callback(null, res.rows);
+					}
+			});
+	},
+
+	blockUser: function(userID, callback){
+		pool.query("update users set state = 0 where userID = $1::int", [userID], function(err, res){
+				if(err != null){
+					console.log(userID);
+					callback(err, null);
+				}
+				else{
+					callback(null, res.rows);
+				}
+		});
+	},
+
+	findUserID: function(userID, callback){
+		pool.query("SELECT * FROM USERS WHERE userID = $1::int ", [userID], function(err, res){
+			if (err != null){
+				callback(err, null);
+			}
+			else {
+				// console.log(userID);
+				// console.log(state);
+				// console.log(res.rows);
+				callback(null, res.rows);
+			}
+		});
 	}
 }
 

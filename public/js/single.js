@@ -27,7 +27,7 @@
 						console.log($('#quan').val());
 						$.ajax({
 				        type: 'POST',
-				        url: '/add2Cart',
+				        url: '/cart/add2Cart',
 				        data: {add : 1, productid: productid, quantity: quan},
 				        success: function(data){
 				            if (data.localeCompare("1") == 0)
@@ -38,6 +38,8 @@
 				            {
 								alert('Please sign in to buy');
 				            }
+				            else
+				            	window.location = '/404/2';
 				        },
 				        error: function(jqXHR, exception) {
 				        var msg = '';
@@ -83,7 +85,7 @@
 
 			$.ajax({
 				type: 'POST',
-				url: '/addReview',
+				url: '/single/addReview',
 				data: {customerid: customerid, productid: productid, detail: content},
 				success: function(data){
 					if (data.localeCompare("1") == 0)

@@ -33,7 +33,7 @@ $(document).ready(function() {
                         "pass": pass,
                         changePic: changePic
                     },
-                    url: '/updateProfile',
+                    url: '/user/updateProfile',
                     error: function(xhr) {
                             status('Error: ' + xhr.status);
                     },
@@ -44,7 +44,8 @@ $(document).ready(function() {
                         }
                         else if (data.localeCompare('0') === 0)
                         {
-                            //show 500 error   
+                            //show 500 error  
+                            window.location = '/404/2'; 
                         }
                     }
                 });

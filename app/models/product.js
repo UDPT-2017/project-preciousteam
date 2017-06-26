@@ -2,7 +2,30 @@ const pool = require('./connect');
 
 const Product = {
 	getProductBasedOnCate: function(catename, callback){
-		pool.query("select distinct on (p.productid) p.productid, name, brand, typename, price, picid from product p, producttype pt, category c, picture pic where p.producttype = typeid  and c.catename = $1::text and pt.category = c.cateid and catename = $1::text and  p.productid = pic.productid and p.state = 1", [catename], function(err, res){
+		pool.query("select distinct on (p.productid) p.productid, name, brand, typename, price, picid from product p, producttype pt, category c, picture pic where p.producttype = typeid  and c.catename = $1::text and pt.category = c.cateid and catename = $1::text and  p.productid = pic.productid and p.state = 1", [catename], 
+			function(err, res){
+			if (err != null){
+				callback(err, null);
+			}
+			else {
+				callback(null, res.rows);
+			}
+		});
+	},
+	getProductBasedOnType: function(catename, typename, callback){
+		pool.query("select distinct on (p.productid) p.productid, name, brand, typename, price, picid from product p, producttype pt, category c, picture pic where p.producttype = pt.typeid and c.cateid = pt.category and c.catename = $1::text and pt.typename=$2::text and  p.productid = pic.productid and p.state = 1",
+		 [catename, typename], function(err, res){
+			if (err != null){
+				callback(err, null);
+			}
+			else {
+				callback(null, res.rows);
+			}
+		});
+	},
+	getDiscountProduct: function(callback){
+		pool.query("select distinct on (p.productid) p.productid, name, brand, typename, price, picid, percent from product p, producttype pt, category c, picture pic, discount d where p.producttype = pt.typeid and c.cateid = pt.category and current_timestamp AT time zone 'UCT-7' > firstday and current_timestamp AT time zone 'UCT-7' <lastday and  p.productid = pic.productid and p.productid = d.product and p.state = 1"
+			, function(err, res){
 			if (err != null){
 				callback(err, null);
 			}
