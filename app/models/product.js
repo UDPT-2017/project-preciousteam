@@ -56,7 +56,7 @@ const Product = {
 		});
 	},
 	addReview: function(detail, customerid, productid, callback){
-		pool.query("insert into review values(default, $1::text, $2::int, $3::int, current_timestamp AT time zone 'UCT-7')", [detail, customerid, productid], 
+		pool.query("insert into review values(default, $1::text, $2::int, $3::int, current_timestamp)", [detail, customerid, productid], 
 			function(err, res){
 			if (err != null){
 				console.log(err);
