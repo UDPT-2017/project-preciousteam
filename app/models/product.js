@@ -121,7 +121,7 @@ const Product = {
 			else {
 				let typeid = res.rows[0];
 				typeid = typeid.typeid;
-				pool.query("insert into product values(default, $1::text, $2::text, $3::int, $4::int, $5::int, $6::int, current_timestamp', $7::text, null, 0)",
+				pool.query("insert into product values(default, $1::text, $2::text, $3::int, $4::int, $5::int, $6::int, current_timestamp, $7::text, null, 0)",
 				[name, description, price, quan, seller, typeid, brand], 
 				function(err1, res1){
 					if (err1 != null)
