@@ -15,7 +15,8 @@ const userController  = {
 		}
 		else {
 		res.render('profile',{
-			user: req.user
+			user: req.user,
+			active_profile: "active"
 		});	
 		}
 		
@@ -29,7 +30,8 @@ const userController  = {
 		else
 		{
 		res.render('profile', {
-			user: req.user
+			user: req.user,
+			active_profile: "active"
 		});			
 		}
 
