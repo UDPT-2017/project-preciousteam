@@ -15,8 +15,13 @@ const logInController = {
         console.log(req.body);
 		if (req.user != null)
         {
-            req.app.locals.user = req.user;
-			res.end('/homeAdmin');
+            const user = req.user;
+            if (user.type == 2)
+				res.end('/home');
+			if (user.type == 0)
+				res.end('/homeAdmin');
+			if (user.type == 1)
+				res.end('/homeStaff');
         }
 		else
 			res.end('fail');

@@ -4,6 +4,7 @@ const User = require('../models/users.js');
 const adminController = {
 	index: function(req, res){
 		let user = req.user;
+
 			if (user == null) {
 				res.render('404',{
 					eTitle: '401',
