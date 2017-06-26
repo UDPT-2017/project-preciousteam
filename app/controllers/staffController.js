@@ -396,7 +396,7 @@ const staffController = {
 	},
 
 	checkPost: function(req, res){
-		Post.checkPost(req.body.productID, req.user.userID, req.body.btn, function(err, result){
+		Post.checkPost(req.body.productID, req.user.userid, req.body.btn, function(err, result){
 			// console.log("do check posst controler" + req.body.productID);
 			// console.log("do check posst controler" + req.body.userID);
 			// console.log("do check posst controler" + req.body.btn);
