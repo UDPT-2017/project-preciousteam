@@ -96,7 +96,7 @@ const staffController = {
 			}
 			else if(user.type === 0)  //là admin
 				layout = "applicationAdmin";
-		if(user.type==='1' || user.type===0){
+				if(user.type==='1' || user.type===0){
 				User.findUserID(req.params.id, function(err, usersDt){
 					let usertype = 'Customer';
 					let atv = new Array('active','');
@@ -396,7 +396,7 @@ const staffController = {
 	},
 
 	checkPost: function(req, res){
-		Post.checkPost(req.body.productID, req.user.userID, req.body.btn, function(err, result){
+		Post.checkPost(req.body.productID, req.user.userid, req.body.btn, function(err, result){
 			// console.log("do check posst controler" + req.body.productID);
 			// console.log("do check posst controler" + req.body.userID);
 			// console.log("do check posst controler" + req.body.btn);

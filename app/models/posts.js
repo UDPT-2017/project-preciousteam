@@ -12,7 +12,7 @@ const posts = {
 				callback(err, null);
 			}
 			else {
-				// console.log(res.rows);
+				console.log(res.rows);
 				callback(null, res.rows);
 			}
 		});
