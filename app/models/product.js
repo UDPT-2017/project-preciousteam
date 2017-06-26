@@ -24,7 +24,7 @@ const Product = {
 		});
 	},
 	getDiscountProduct: function(callback){
-		pool.query("select distinct on (p.productid) p.productid, name, brand, typename, price, picid, percent from product p, producttype pt, category c, picture pic, discount d where p.producttype = pt.typeid and c.cateid = pt.category and current_timestamp AT time zone 'UCT-7' > firstday and current_timestamp AT time zone 'UCT-7' <lastday and  p.productid = pic.productid and p.productid = d.product and p.state = 1"
+		pool.query("select distinct on (p.productid) p.productid, name, brand, typename, price, picid, percent from product p, producttype pt, category c, picture pic, discount d where p.producttype = pt.typeid and c.cateid = pt.category and current_timestamp > firstday and current_timestamp <lastday and  p.productid = pic.productid and p.productid = d.product and p.state = 1"
 			, function(err, res){
 			if (err != null){
 				callback(err, null);
@@ -121,7 +121,7 @@ const Product = {
 			else {
 				let typeid = res.rows[0];
 				typeid = typeid.typeid;
-				pool.query("insert into product values(default, $1::text, $2::text, $3::int, $4::int, $5::int, $6::int, current_timestamp AT time zone 'UCT-7', $7::text, null, 0)",
+				pool.query("insert into product values(default, $1::text, $2::text, $3::int, $4::int, $5::int, $6::int, current_timestamp', $7::text, null, 0)",
 				[name, description, price, quan, seller, typeid, brand], 
 				function(err1, res1){
 					if (err1 != null)
