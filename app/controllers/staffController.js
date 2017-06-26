@@ -28,9 +28,10 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-			else if(user.type === 0)  //là admin
+			else if(user.type === 0) {
 				layout = "applicationAdmin";
-			if(user.type==='1' || user.type===0){
+			}
+			if(user.type===1 || user.type===0){
 				res.render('staff/homeStaff',{
 					layout: 'applicationStaff',
 					active_dashboard: 'active',
@@ -60,8 +61,9 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-			else if(user.type === 0)  //là admin
+			else if(user.type === 0) {
 				layout = "applicationAdmin";
+			}
 			if(user.type===1 || user.type===0){
 			User.findUserType(2, function(err, customers){
 				res.render('staff/customers',{
@@ -94,9 +96,10 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-			else if(user.type === 0)  //là admin
+			else if(user.type === 0) {
 				layout = "applicationAdmin";
-		if(user.type==='1' || user.type===0){
+			}
+		if(user.type===1 || user.type===0){
 				User.findUserID(req.params.id, function(err, usersDt){
 					let usertype = 'Customer';
 					let atv = new Array('active','');
@@ -139,8 +142,9 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-		else if(user.type === 0)  //là admin
+		else if(user.type === 0) {
 				layout = "applicationAdmin";
+			}
 		if(user.type===1 || user.type===0){
 			Post.findOldPost(function(err, posts){
 				Post.findNewPost(function(err, newposts) {
@@ -176,8 +180,9 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-		else if(user.type === 0)  //là admin
+		else if(user.type === 0) {
 				layout = "applicationAdmin";
+			}
 		if(user.type===1 || user.type===0){
 			Post.findNewPost(function(err, posts){
 				res.render('staff/uncheckPosts',{
@@ -210,8 +215,9 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-			else if(user.type === 0)  //là admin
+			else if(user.type === 0) {
 				layout = "applicationAdmin";
+			}
 		if(user.type===1 || user.type===0){
 				let visible = "hidden";
 				Post.check(req.params.id, function(errc, rsc){
@@ -269,8 +275,9 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-			else if(user.type === 0)  //là admin
+			else if(user.type === 0) {
 				layout = "applicationAdmin";
+			}
 		if(user.type===1 || user.type===0){
 			User.findUserID(user.userID, function(err, usersDt){
 				res.render('staff/editProfile',{
@@ -313,8 +320,9 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-			else if(user.type === 0)  //là admin
+			else if(user.type === 0) {
 				layout = "applicationAdmin";
+			}
 	 if(user.type===1 || user.type===0){
 		 Post.findOrder(function(err, orders){
 			 res.render('staff/orders',{
@@ -355,8 +363,9 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-			else if(user.type === 0)  //là admin
+			else if(user.type === 0) {
 				layout = "applicationAdmin";
+			}
 		if(user.type===1 || user.type===0){
 			Inbox.getAllInbox(function(err, mails){
 				res.render('staff/mailbox', {
