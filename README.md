@@ -6,8 +6,8 @@ Thành viên:
 * [x] **1412520** - Nguyễn Hoàng Thi - thikhin96 - nghoangthi1@gmail.com 
 * [x] **1412503** - Nguyễn Thị Thanh Thảo - thaonguyen1096 - thaonguyen1096@gmail.com
 
-* URL: **URL hosting của đề tài**
-* Báo cáo: **https://udpt-2017.github.io/project-preciousteam/**
+* URL: https://project-preciousteam.herokuapp.com/
+* Báo cáo: https://udpt-2017.github.io/project-preciousteam/
 
 ## Yêu cầu
 
