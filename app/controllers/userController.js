@@ -90,7 +90,7 @@ const userController  = {
 			res.redirect('/logIn');
 		else
 		{
-			res.render('createpost', {
+			res.render('createPost', {
 			user: req.user
 		});
 		}
