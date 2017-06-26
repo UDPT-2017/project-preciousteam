@@ -33,7 +33,7 @@ $(document).ready(function() {
                         "pass": pass,
                         changePic: changePic
                     },
-                    url: '/updateProfile',
+                    url: '/user/updateProfile',
                     error: function(xhr) {
                             status('Error: ' + xhr.status);
                     },

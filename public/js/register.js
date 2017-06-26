@@ -17,7 +17,7 @@ var errror = false;
                     success: function(data) {
                         if (data.localeCompare('1') === 0)
                         {
-                            window.location = '/activateAnnounce';
+                            window.location = '/activate/announce';
                         }
                         else if (data.localeCompare('0') === 0)
                         {

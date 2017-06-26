@@ -30,7 +30,7 @@ $(document).ready(function() {
 						$.ajax({
 							type: 'POST',
 							data: {productid: ($('.hidden').eq(index)).text()},
-							url: '/deleteItem',
+							url: '/cart/deleteItem',
 							success: function(data){
 								if (data.localeCompare("1") == 0)
 								{
@@ -76,7 +76,7 @@ $(document).ready(function() {
 	$('#pay').click(function(){
 		$.ajax({
 			type: 'POST',
-			url: '/checkout',
+			url: '/cart/checkout',
 			success: function(data){
 				if (data.localeCompare("1") == 0)
 					{

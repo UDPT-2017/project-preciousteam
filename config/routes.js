@@ -8,81 +8,134 @@ module.exports = function(app) {
 
 	app.get('/home', controllers.home.index);
 
-	app.get('/logIn', controllers.logIn.index);
-	app.post('/logIn', passport.authenticate('local-login'), function(req, res){
-        
-		if (req.user != null)
-        {
-        	console.log(req.body);
-            req.app.locals.user = req.user;
-			res.send('/home');
-        }
-		else
-			res.send('fail');
-	});
-	app.get('/register', controllers.register.index);
-	app.get('/index', controllers.user.index);
-	app.get('/profile', controllers.user.profile);
-	app.get('/cart', controllers.user.cart);
-	app.get('/posts', controllers.user.posts);
-	app.get('/createpost', controllers.user.createpost);
-	app.post('/register', controllers.register.submit);
-	app.get('/activateAnnounce', controllers.register.activateAnnounce);
-	app.get('/activate/:userid', controllers.register.activate);
-	app.get('/activatePage/:userid', controllers.register.activateSuccess);
-	app.get('/product/:catename', controllers.product.index);
-	app.get('/single/:productid', controllers.product.detail);
-	app.post('/add2Cart', controllers.cart.add);
-	app.post('/deleteItem', controllers.cart.delete);
-	app.post('/checkout', controllers.cart.checkout);
-	app.post('/addReview', controllers.product.addReview);
-	app.post('/createPost', controllers.product.createPost);
-	app.post('/logOut', controllers.logIn.logOut);
-	app.post('/deletePost', controllers.product.deleteProduct);
-	app.post('/updateProfile', controllers.user.updateUser);
+	///app.get('/logIn', controllers.logIn.index);
+	//app.post('/logIn', passport.authenticate('local-login'), controllers.logIn.submit);
+	//app.get('/register', controllers.register.index);
+	//app.post('/register', controllers.register.submit);
+	//app.get('/user/index', controllers.user.index);
+	//app.get('/user/profile', controllers.user.profile);
+	//app.get('/user/posts', controllers.user.posts);
+	//app.post('/user/updateProfile', controllers.user.updateUser);
+	//app.post('/user/posts/deletePost', controllers.product.deleteProduct);
+
+	//app.get('/cart', controllers.user.cart);
+	//app.post('/cart/add2Cart', controllers.cart.add);
+	//app.post('/cart/deleteItem', controllers.cart.delete);
+	//app.post('/cart/checkout', controllers.cart.checkout);
+	
+	//app.get('/createpost', controllers.user.createpost);
+	//app.post('/createPost', controllers.product.createPost);
+	
+	//app.get('/activate/announce', controllers.register.activateAnnounce);
+	//app.get('/activate/:userid', controllers.register.activate);
+	//app.get('/activate/process/:userid', controllers.register.activateSuccess);
+	
+	//app.get('/product/:catename', controllers.product.index);
+	
+	//app.post('/single/addReview', controllers.product.addReview);
+	//app.get('/single/:productid', controllers.product.detail);
+
+	
+	
+	//app.post('/logOut', controllers.logIn.logOut);
+
 
 	app.get('/404/:id', controllers.user.err);
 
-	var addDiscount = Router()
+	let activate = Router()
+		.get('/announce', controllers.register.activateAnnounce)
+		.get('/:userid', controllers.register.activate)
+
+	let activateProcess = Router()
+		.get('/:userid', controllers.register.activateSuccess);
+
+
+	let user = Router()
+		.get('/profile', controllers.user.profile)
+		.get('/posts', controllers.user.posts)
+		.post('/updateProfile', controllers.user.updateUser)
+		.post('/posts/deletePost', controllers.product.deleteProduct)
+		.get('/index', controllers.user.index);
+
+	let cart = Router()
+		.get('/', controllers.user.cart)
+		.post('/add2Cart', controllers.cart.add)
+		.post('/deleteItem', controllers.cart.delete)
+		.post('/checkout', controllers.cart.checkout);
+
+	let register = Router()
+		.get('/', controllers.register.index)
+		.post('/', controllers.register.submit);
+
+	let logIn = Router()
+		.get('/', controllers.logIn.index)
+		.post('/', passport.authenticate('local-login'), controllers.logIn.submit);
+
+	let single = Router()
+		.post('/addReview', controllers.product.addReview)
+		.get('/:productid', controllers.product.detail);
+
+	let createPost = Router()
+		.get('/', controllers.user.createpost)
+		.post('/', controllers.product.createPost);
+
+	let product = Router()
+		.get('/:catename', controllers.product.index);
+
+	let logOut = Router()
+		.post('/', controllers.logIn.logOut);
+
+	app.use('/product', product);
+	app.use('/single', single);
+	app.use('/createPost', createPost );
+	app.use('/logIn', logIn);
+	app.use('/register', register);
+	app.use('/cart', cart);
+	app.use('/user', user);
+	app.use('/activate', activate);
+	app.use('/activateProcess', activateProcess);
+	app.use('/logOut', logOut);
+
+	let addDiscount = Router()
 		.get('/', controllers.user.addDiscount)
 		.post('/', controllers.user.addDiscountSave);
 
-	var about = Router()
+	let about = Router()
 		.get('/', controllers.user.about);
 
-	var contact = Router()
+	let contact = Router()
 		.get('/', controllers.user.contact)
 		.post('/', controllers.user.sendMessage);
 
-	var homeAdmin = Router()
+	let homeAdmin = Router()
 			.get('/', controllers.admin.index);
-	var addStaff = Router()
+	let addStaff = Router()
 			.get('/', controllers.admin.addStaff)
 			.post('/', controllers.admin.createStaff);
-	var staffList = Router()
+	let staffList = Router()
 			.get('/', controllers.admin.staffList);
 
-	var homeStaff = Router()
+	let homeStaff = Router()
 		.get('/', controllers.staff.index);
-	var customers = Router()
+	let customers = Router()
 		.get('/', controllers.staff.customers);
-	var userDetail = Router()
+	let userDetail = Router()
 		.get('/:id', controllers.staff.userDetail)
 		.post('/:id', controllers.staff.blockUser);
-	var allPosts = Router()
+	let allPosts = Router()
 		.get('/', controllers.staff.allPosts);
-	var newPosts = Router()
+	let newPosts = Router()
 		.get('/', controllers.staff.newPosts)
 		.post('/', controllers.staff.checkPost);
-	var postDetails = Router()
+	let postDetails = Router()
 		.get('/:id', controllers.staff.postDetail)
 		.post('/:id', controllers.staff.checkPost);
-	var orders = Router()
+	let orders = Router()
 		.get('/', controllers.staff.orders);
-	var editProfile = Router()
+	let editProfile = Router()
 		.get('/', controllers.staff.editProfile);
 
-	var mailbox = Router()
+	let mailbox = Router()
 		.get('/', controllers.staff.mailbox)
 		.post('/', controllers.staff.readmail);
 
