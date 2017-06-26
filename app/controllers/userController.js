@@ -11,7 +11,7 @@ const userController  = {
 		const user = req.user;
 		if (user == undefined)
 		{
-			res.render('logIn');
+			res.redirect('/logIn');
 		}
 		else {
 		res.render('profile',{
@@ -24,7 +24,7 @@ const userController  = {
 		const user = req.user;
 		if (user == undefined)
 		{
-			res.render('logIn');
+			res.redirect('/logIn');
 		}
 		else
 		{
@@ -38,7 +38,7 @@ const userController  = {
 		const user = req.user;
 		if (user == undefined)
 		{
-			res.render('logIn');
+			res.redirect('/logIn');
 		}
 		else {
 			Cart.getAllItems(user.userid, function(err, ress){
@@ -63,7 +63,7 @@ const userController  = {
 		const user = req.user;
 		if (user == undefined)
 		{
-			res.render('logIn');
+			res.redirect('/logIn');
 		}
 		else {
 			Product.getAllPostsOf(user.userid, function(err, ress){
@@ -87,7 +87,7 @@ const userController  = {
 	},
 	createpost: function(req, res){
 		if (req.user == undefined)
-			res.render('logIn');
+			res.redirect('/logIn');
 		else
 		{
 			res.render('createpost', {
@@ -99,7 +99,7 @@ const userController  = {
 	updateUser: function(req, res){
 		if (req.user == undefined)
 		{
-			res.render('logIn');
+			res.redirect('/logIn');
 			return;
 		}
 		const upload = multer({ storage : storage}).single('userPhoto');
@@ -143,7 +143,7 @@ const userController  = {
 	addDiscount: function(req, res){
 		if (req.user == undefined)
 		{
-			res.render('logIn');
+			res.redirect('/logIn');
 		}
 		else
 		{
@@ -161,7 +161,7 @@ const userController  = {
 	addDiscountSave: function(req, res){
 		if (req.user == undefined)
 		{
-			res.render('logIn');
+			res.redirect('/logIn');
 		}
 		else
 		{
