@@ -25,7 +25,6 @@ $(document).ready(function() {
                  e.preventDefault();
                  const tel = $('#phone').val();
                  const pass = $('#pass').val();
-                 alert(pass);
                 $(this).ajaxSubmit({
                     type: 'POST',
                     data: {

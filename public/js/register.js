@@ -40,7 +40,6 @@ var errror = false;
  });
 
 function readURL(input) {
-    alert('hehe');
         if (input.files && input.files[0]) {
              alert('hoho');
             var reader = new FileReader();

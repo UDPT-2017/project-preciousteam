@@ -7,7 +7,7 @@ const helpers = require('handlebars-helpers')();
 
 config(app);
 
-const port = process.env.PORT || 3000;
+let port = process.env.PORT || 3000;
 app.listen(port, function () {
   console.log('Example app listening on port 3000!')
 });

@@ -11,11 +11,12 @@ const userController  = {
 		const user = req.user;
 		if (user == undefined)
 		{
-			res.render('logIn');
+			res.redirect('/logIn');
 		}
 		else {
 		res.render('profile',{
-			user: req.user
+			user: req.user,
+			active_profile: "active"
 		});	
 		}
 		
@@ -24,12 +25,13 @@ const userController  = {
 		const user = req.user;
 		if (user == undefined)
 		{
-			res.render('logIn');
+			res.redirect('/logIn');
 		}
 		else
 		{
 		res.render('profile', {
-			user: req.user
+			user: req.user,
+			active_profile: "active"
 		});			
 		}
 
@@ -38,7 +40,7 @@ const userController  = {
 		const user = req.user;
 		if (user == undefined)
 		{
-			res.render('logIn');
+			res.redirect('/logIn');
 		}
 		else {
 			Cart.getAllItems(user.userid, function(err, ress){
@@ -63,7 +65,7 @@ const userController  = {
 		const user = req.user;
 		if (user == undefined)
 		{
-			res.render('logIn');
+			res.redirect('/logIn');
 		}
 		else {
 			Product.getAllPostsOf(user.userid, function(err, ress){
@@ -87,10 +89,10 @@ const userController  = {
 	},
 	createpost: function(req, res){
 		if (req.user == undefined)
-			res.render('logIn');
+			res.redirect('/logIn');
 		else
 		{
-			res.render('createpost', {
+			res.render('createPost', {
 			user: req.user
 		});
 		}
@@ -99,7 +101,7 @@ const userController  = {
 	updateUser: function(req, res){
 		if (req.user == undefined)
 		{
-			res.render('logIn');
+			res.redirect('/logIn');
 			return;
 		}
 		const upload = multer({ storage : storage}).single('userPhoto');
@@ -143,14 +145,15 @@ const userController  = {
 	addDiscount: function(req, res){
 		if (req.user == undefined)
 		{
-			res.render('logIn');
+			res.redirect('/logIn');
 		}
 		else
 		{
 		Post.getPostUser(req.user.userid, function(err, product){
 			res.render('addDiscount',{
 				active_discount: 'active',
-				product: product
+				product: product,
+				user: req.user
 			});
 		});			
 		}
@@ -160,7 +163,7 @@ const userController  = {
 	addDiscountSave: function(req, res){
 		if (req.user == undefined)
 		{
-			res.render('logIn');
+			res.redirect('/logIn');
 		}
 		else
 		{
