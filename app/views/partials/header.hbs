@@ -30,7 +30,6 @@
 					<ul >
 						<li><a href="/login">Login</a></li>
 						<li><a href="/register">Register</a></li>
-						<li><a href="/checkout">Checkout</a></li>
 					</ul>
 				</div>
 			{{/if}}
@@ -41,6 +40,7 @@
 		<div class="container">
 
 			<div class="head-top">
+
 		 <div class="col-sm-7 col-md-offset-2 h_menu4">
 
 				<nav class="navbar nav_bottom" role="navigation">
@@ -69,8 +69,9 @@
 			<li class="dropdown mega-dropdown active {{active_skincare}}">
 					{{>skincareCate}}
 			</li>
-			<li class={{active_about}}><a class="color4" href="#">About</a></li>
-            <li class={{active_contact}}><a class="color6" href="contact.html">Contact</a></li>
+			<li class={{active_about}}><a class="color4" href="/about">About</a></li>
+            <li class={{active_contact}}><a class="color6" href="/contact">Contact</a></li>
+
 
         </ul>
      </div><!-- /.navbar-collapse -->
@@ -90,9 +91,10 @@
 
 						<!----->
 
-						<!---pop-up-box---->
 			<link href="../css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
 			<script src="../js/jquery.magnific-popup.js" type="text/javascript"></script>
+
+
 			<!---//pop-up-box---->
 			<div id="small-dialog" class="mfp-hide">
 				<div class="search-top">
