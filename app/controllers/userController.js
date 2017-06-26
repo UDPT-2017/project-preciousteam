@@ -8,22 +8,39 @@ const Post = require('../models/posts.js');
 
 const userController  = {
 	index: function(req, res){
-		res.render('profile',{
-			user: req.user
-		});
-	},
-	profile: function(req, res){
-		res.render('profile', {
-			user: req.user
-		});
-	},
-	cart: function(req, res){
 		const user = req.user;
-		if (user == null)
+		if (user == undefined)
 		{
 			res.render('logIn');
 		}
+		else {
+		res.render('profile',{
+			user: req.user
+		});	
+		}
+		
+	},
+	profile: function(req, res){
+		const user = req.user;
+		if (user == undefined)
 		{
+			res.render('logIn');
+		}
+		else
+		{
+		res.render('profile', {
+			user: req.user
+		});			
+		}
+
+	},
+	cart: function(req, res){
+		const user = req.user;
+		if (user == undefined)
+		{
+			res.render('logIn');
+		}
+		else {
 			Cart.getAllItems(user.userid, function(err, ress){
 			if (err != null)
 			{
@@ -44,7 +61,7 @@ const userController  = {
 	},
 	posts: function(req, res){
 		const user = req.user;
-		if (user == null)
+		if (user == undefined)
 		{
 			res.render('logIn');
 		}
@@ -69,7 +86,7 @@ const userController  = {
 		
 	},
 	createpost: function(req, res){
-		if (req.user == null)
+		if (req.user == undefined)
 			res.render('logIn');
 		else
 		{
@@ -80,7 +97,7 @@ const userController  = {
 
 	},
 	updateUser: function(req, res){
-		if (req.user == null)
+		if (req.user == undefined)
 		{
 			res.render('logIn');
 			return;
@@ -124,7 +141,7 @@ const userController  = {
 		});
 	},
 	addDiscount: function(req, res){
-		if (req.user == null)
+		if (req.user == undefined)
 		{
 			res.render('logIn');
 		}
@@ -141,7 +158,7 @@ const userController  = {
 	},
 
 	addDiscountSave: function(req, res){
-		if (req.user == null)
+		if (req.user == undefined)
 		{
 			res.render('logIn');
 		}

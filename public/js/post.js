@@ -27,6 +27,7 @@ $(".close1").bind("click", function(Event){
 								else
 								{
 									//500
+									window.location = '/404/2';
 								}
 							},
 							error: function(jqXHR, exception) {

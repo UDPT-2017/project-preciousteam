@@ -44,6 +44,7 @@ $(document).ready(function() {
 								else
 								{
 									//500
+									window.location = '/404/2';
 								}
 							},
 							error: function(jqXHR, exception) {
@@ -87,6 +88,7 @@ $(document).ready(function() {
 				else
 					{
 						//500
+						window.location = '/404/2';
 					}
 			},
 			error: function(jqXHR, exception) {

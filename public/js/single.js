@@ -38,6 +38,8 @@
 				            {
 								alert('Please sign in to buy');
 				            }
+				            else
+				            	window.location = '/404/2';
 				        },
 				        error: function(jqXHR, exception) {
 				        var msg = '';
