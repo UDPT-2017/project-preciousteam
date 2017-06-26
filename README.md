@@ -83,7 +83,7 @@ Các luồng xử lý chính là:
 ### Tương tác API khác
 Liệt kê các API nhóm đã sử dụng được ở đây
 * [ ] Facebook API: mô tả (MSSV1)
-* [x] Google API: mô tả (MSSV1)
+* [x] Google API: Cho phép truy cập tài khoản gmail để gửi mail tới các địa chỉ mail của người dùng.
 
 ## Lập trình client
 * [x] Kiểm tra dữ liệu (MSSV1)
