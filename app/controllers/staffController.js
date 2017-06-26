@@ -2,21 +2,33 @@ const User = require('../models/users.js');
 const Post = require('../models/posts.js');
 const Inbox = require('../models/inbox.js');
 //////------------------------------/////
-var user = {
-	userID: 1,
-	email: 'phuongthanh@gmail.com',
-	name: 'Phương Thanh',
-	phone: '0123547863',
-	type: '1',
-	state: '1',
-};
+
 
 var layout = "applicationStaff";
 //////------------------------------/////
 
 const staffController = {
 		index: function(req, res){
-			if(user.type === '0')  //là admin
+			let user = req.user;
+
+			if (user == undefined) {
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+			else if (user.type == 2)
+			{
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+			else if(user.type === '0')  //là admin
 				layout = "applicationAdmin";
 			if(user.type==='1' || user.type==='0'){
 				res.render('staff/homeStaff',{
@@ -26,20 +38,31 @@ const staffController = {
 					username: user.name,
 				});
 		}
-		else {
-			res.render('404',{
-				eTitle: '401',
-				Content: 'Authorization require',
-				buttonLink:'/home',
-				buttonValue:'Back to home'
-				});
-		}
+		
 	},
 
 	customers: function(req, res){
-		if(user.type == 0)  //là admin
-			layout = "applicationAdmin";
-		if(user.type==='1' || user.type==='0'){
+		let user = req.user;
+			if (user == undefined) {
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+			else if (user.type == 2)
+			{
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+			else if(user.type === '0')  //là admin
+				layout = "applicationAdmin";
+			if(user.type==='1' || user.type==='0'){
 			User.findUserType(2, function(err, customers){
 				res.render('staff/customers',{
 					layout: layout,
@@ -50,19 +73,29 @@ const staffController = {
 				});
 			});
 		}
-		else {
-			res.render('404',{
-				eTitle: '401',
-				Content: 'Authorization require',
-				buttonLink:'/home',
-				buttonValue:'Back to home'
-				});
-		}
 	},
 
 	userDetail: function(req, res){
-		if(user.type == 0)  //là admin
-			layout = "applicationAdmin";
+		let user = req.user;
+			if (user == undefined) {
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+			else if (user.type == 2)
+			{
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+			else if(user.type === '0')  //là admin
+				layout = "applicationAdmin";
 		if(user.type==='1' || user.type==='0'){
 				User.findUser(req.params.id, function(err, usersDt){
 					let usertype = 'Customer';
@@ -86,7 +119,10 @@ const staffController = {
 					});
 				});
 			}
-			else {
+	},
+	allPosts: function(req, res){
+		let user = req.user;
+			if (user == undefined) {
 				res.render('404',{
 					eTitle: '401',
 					Content: 'Authorization require',
@@ -94,10 +130,17 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-	},
-	allPosts: function(req, res){
-		if(user.type == 0)  //là admin
-			layout = "applicationAdmin";
+			else if (user.type == 2)
+			{
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+		else if(user.type === '0')  //là admin
+				layout = "applicationAdmin";
 		if(user.type==='1' || user.type==='0'){
 			Post.findOldPost(function(err, posts){
 				Post.findNewPost(function(err, newposts) {
@@ -112,19 +155,29 @@ const staffController = {
 				});
 			});
 		}
-		else {
-			res.render('404',{
-				eTitle: '401',
-				Content: 'Authorization require',
-				buttonLink:'/home',
-				buttonValue:'Back to home'
-				});
-		}
 	},
 
 	newPosts: function(req, res){
-		if(user.type == 0)  //là admin
-			layout = "applicationAdmin";
+		let user = req.user;
+			if (user == undefined) {
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+			else if (user.type == 2)
+			{
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+		else if(user.type === '0')  //là admin
+				layout = "applicationAdmin";
 		if(user.type==='1' || user.type==='0'){
 			Post.findNewPost(function(err, posts){
 				res.render('staff/uncheckPosts',{
@@ -136,19 +189,29 @@ const staffController = {
 				});
 			});
 		}
-		else {
-			res.render('404',{
-				eTitle: '401',
-				Content: 'Authorization require',
-				buttonLink:'/home',
-				buttonValue:'Back to home'
-				});
-		}
 		},
 
 	postDetail: function(req, res){
-		if(user.type == 0)  //là admin
-			layout = "applicationAdmin";
+		let user = req.user;
+			if (user == undefined) {
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+			else if (user.type == 2)
+			{
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+			else if(user.type === '0')  //là admin
+				layout = "applicationAdmin";
 		if(user.type==='1' || user.type==='0'){
 				let visible = "hidden";
 				Post.check(req.params.id, function(errc, rsc){
@@ -185,7 +248,11 @@ const staffController = {
 					}
 				});
 			}
-			else {
+	},
+
+	editProfile: function(req, res){
+		let user = req.user;
+			if (user == undefined) {
 				res.render('404',{
 					eTitle: '401',
 					Content: 'Authorization require',
@@ -193,11 +260,17 @@ const staffController = {
 					buttonValue:'Back to home'
 					});
 			}
-	},
-
-	editProfile: function(req, res){
-		if(user.type == 0)  //là admin
-			layout = "applicationAdmin";
+			else if (user.type == 2)
+			{
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+			else if(user.type === '0')  //là admin
+				layout = "applicationAdmin";
 		if(user.type==='1' || user.type==='0'){
 			User.findUser(user.userID, function(err, usersDt){
 				res.render('staff/editProfile',{
@@ -222,8 +295,26 @@ const staffController = {
 	},
 
  orders: function(req, res){
-	 if(user.type == 0)  //là admin
-		 layout = "applicationAdmin";
+ 	let user = req.user;
+			if (user == undefined) {
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+			else if (user.type == 2)
+			{
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+			else if(user.type === '0')  //là admin
+				layout = "applicationAdmin";
 	 if(user.type==='1' || user.type==='0'){
 		 Post.findOrder(function(err, orders){
 			 res.render('staff/orders',{
@@ -246,8 +337,26 @@ const staffController = {
  },
 
 	mailbox: function(req, res){
-		if(user.type == 0)  //là admin
-			layout = "applicationAdmin";
+		let user = req.user;
+			if (user == undefined) {
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+			else if (user.type == 2)
+			{
+				res.render('404',{
+					eTitle: '401',
+					Content: 'Authorization require',
+					buttonLink:'/home',
+					buttonValue:'Back to home'
+					});
+			}
+			else if(user.type === '0')  //là admin
+				layout = "applicationAdmin";
 		if(user.type==='1' || user.type==='0'){
 			Inbox.getAllInbox(function(err, mails){
 				res.render('staff/mailbox', {

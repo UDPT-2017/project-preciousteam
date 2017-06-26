@@ -19,7 +19,12 @@ const userController  = {
 	},
 	cart: function(req, res){
 		const user = req.user;
-		Cart.getAllItems(user.userid, function(err, ress){
+		if (user == null)
+		{
+			res.render('logIn');
+		}
+		{
+			Cart.getAllItems(user.userid, function(err, ress){
 			if (err != null)
 			{
 				console.log(err);
@@ -32,12 +37,19 @@ const userController  = {
 					products: ress
 				});
 			}
-		})
+			})			
+		}
+		
 		
 	},
 	posts: function(req, res){
 		const user = req.user;
-		Product.getAllPostsOf(user.userid, function(err, ress){
+		if (user == null)
+		{
+			res.render('logIn');
+		}
+		else {
+			Product.getAllPostsOf(user.userid, function(err, ress){
 			if (err != null)
 			{
 				console.log(err);
@@ -52,14 +64,27 @@ const userController  = {
 				});
 			}
 		})
+		}
+		
 		
 	},
 	createpost: function(req, res){
-		res.render('createpost', {
+		if (req.user == null)
+			res.render('logIn');
+		else
+		{
+			res.render('createpost', {
 			user: req.user
 		});
+		}
+
 	},
 	updateUser: function(req, res){
+		if (req.user == null)
+		{
+			res.render('logIn');
+			return;
+		}
 		const upload = multer({ storage : storage}).single('userPhoto');
 		upload(req,res,function(err) {
 			if (err){
@@ -99,23 +124,39 @@ const userController  = {
 		});
 	},
 	addDiscount: function(req, res){
-		Post.getPostUser(4, function(err, product){
+		if (req.user == null)
+		{
+			res.render('logIn');
+		}
+		else
+		{
+		Post.getPostUser(req.user.userid, function(err, product){
 			res.render('addDiscount',{
 				active_discount: 'active',
 				product: product
 			});
-		});
+		});			
+		}
+		
 	},
 
 	addDiscountSave: function(req, res){
-		Post.addDiscount(req.body.productID, req.body.percent, req.body.first, req.body.last, function(err, result){
+		if (req.user == null)
+		{
+			res.render('logIn');
+		}
+		else
+		{
+			Post.addDiscount(req.body.productID, req.body.percent, req.body.first, req.body.last, function(err, result){
 			if(err!=null){
 				res.end('0');
 			}
 			else {
 				res.end('1');
 			}
-		})
+			})
+		}
+		
 	},
 
 	about: function(req, res){

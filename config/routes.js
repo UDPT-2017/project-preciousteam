@@ -42,6 +42,40 @@ module.exports = function(app) {
 
 	app.get('/404/:id', controllers.user.err);
 
+	let logOut = Router()
+		.post('/', controllers.logIn.logOut);
+	let logIn = Router()
+		.get('/', controllers.logIn.index)
+		.post('/', passport.authenticate('local-login'), controllers.logIn.submit);
+
+	
+
+
+
+	//customer
+	let cart = Router()
+		.get('/', controllers.user.cart)
+		.post('/add2Cart', controllers.cart.add)
+		.post('/deleteItem', controllers.cart.delete)
+		.post('/checkout', controllers.cart.checkout);
+
+	let register = Router()
+		.get('/', controllers.register.index)
+		.post('/', controllers.register.submit);
+
+
+
+	let single = Router()
+		.post('/addReview', controllers.product.addReview)
+		.get('/:productid', controllers.product.detail);
+
+	let createPost = Router()
+		.get('/', controllers.user.createpost)
+		.post('/', controllers.product.createPost);
+
+	let product = Router()
+		.get('/:catename', controllers.product.index);
+
 	let activate = Router()
 		.get('/announce', controllers.register.activateAnnounce)
 		.get('/:userid', controllers.register.activate)
@@ -57,33 +91,7 @@ module.exports = function(app) {
 		.post('/posts/deletePost', controllers.product.deleteProduct)
 		.get('/index', controllers.user.index);
 
-	let cart = Router()
-		.get('/', controllers.user.cart)
-		.post('/add2Cart', controllers.cart.add)
-		.post('/deleteItem', controllers.cart.delete)
-		.post('/checkout', controllers.cart.checkout);
 
-	let register = Router()
-		.get('/', controllers.register.index)
-		.post('/', controllers.register.submit);
-
-	let logIn = Router()
-		.get('/', controllers.logIn.index)
-		.post('/', passport.authenticate('local-login'), controllers.logIn.submit);
-
-	let single = Router()
-		.post('/addReview', controllers.product.addReview)
-		.get('/:productid', controllers.product.detail);
-
-	let createPost = Router()
-		.get('/', controllers.user.createpost)
-		.post('/', controllers.product.createPost);
-
-	let product = Router()
-		.get('/:catename', controllers.product.index);
-
-	let logOut = Router()
-		.post('/', controllers.logIn.logOut);
 
 	app.use('/product', product);
 	app.use('/single', single);
@@ -95,6 +103,8 @@ module.exports = function(app) {
 	app.use('/activate', activate);
 	app.use('/activateProcess', activateProcess);
 	app.use('/logOut', logOut);
+
+	//staff
 
 	let addDiscount = Router()
 		.get('/', controllers.user.addDiscount)
