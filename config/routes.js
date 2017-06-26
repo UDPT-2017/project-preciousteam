@@ -7,7 +7,9 @@ var Router = require('express').Router;
 module.exports = function(app) {
 
 	app.get('/home', controllers.home.index);
+	app.get('/', controllers.home.index);
 	app.get('/404/:id', controllers.user.err);
+
 
 	let logOut = Router()
 		.post('/', controllers.logIn.logOut);
