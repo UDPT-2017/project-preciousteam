@@ -45,7 +45,7 @@ const registerController = {
 								{
 									console.log(i);
 									userID = i[0].userid;
-									const link = 'http://localhost:3000/activate/' + userID;
+									const link = 'https://project-preciousteam.herokuapp.com/activate/' + userID;
 									const mailOption = {
 										from: 'ThiNguyen <nghoangthi1@gmail.com>',
 										to: email,
