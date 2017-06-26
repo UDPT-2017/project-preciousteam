@@ -7,39 +7,6 @@ var Router = require('express').Router;
 module.exports = function(app) {
 
 	app.get('/home', controllers.home.index);
-
-	///app.get('/logIn', controllers.logIn.index);
-	//app.post('/logIn', passport.authenticate('local-login'), controllers.logIn.submit);
-	//app.get('/register', controllers.register.index);
-	//app.post('/register', controllers.register.submit);
-	//app.get('/user/index', controllers.user.index);
-	//app.get('/user/profile', controllers.user.profile);
-	//app.get('/user/posts', controllers.user.posts);
-	//app.post('/user/updateProfile', controllers.user.updateUser);
-	//app.post('/user/posts/deletePost', controllers.product.deleteProduct);
-
-	//app.get('/cart', controllers.user.cart);
-	//app.post('/cart/add2Cart', controllers.cart.add);
-	//app.post('/cart/deleteItem', controllers.cart.delete);
-	//app.post('/cart/checkout', controllers.cart.checkout);
-	
-	//app.get('/createpost', controllers.user.createpost);
-	//app.post('/createPost', controllers.product.createPost);
-	
-	//app.get('/activate/announce', controllers.register.activateAnnounce);
-	//app.get('/activate/:userid', controllers.register.activate);
-	//app.get('/activate/process/:userid', controllers.register.activateSuccess);
-	
-	//app.get('/product/:catename', controllers.product.index);
-	
-	//app.post('/single/addReview', controllers.product.addReview);
-	//app.get('/single/:productid', controllers.product.detail);
-
-	
-	
-	//app.post('/logOut', controllers.logIn.logOut);
-
-
 	app.get('/404/:id', controllers.user.err);
 
 	let logOut = Router()
@@ -74,7 +41,8 @@ module.exports = function(app) {
 		.post('/', controllers.product.createPost);
 
 	let product = Router()
-		.get('/:catename', controllers.product.index);
+		.get('/:catename', controllers.product.index)
+		.get('/:catename/:typename', controllers.product.productBasedOnType);
 
 	let activate = Router()
 		.get('/announce', controllers.register.activateAnnounce)
