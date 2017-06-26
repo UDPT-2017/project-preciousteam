@@ -3,8 +3,8 @@
 **Name of your app** là repository cho đồ án nhóm. Nhóm tối đa 4 thành viên.
 
 Thành viên:
-* [ ] **1412520** - Nguyễn Hoàng Thi - thikhin96 - nghoangthi1@gmail.com 
-* [ ] **1412503** - Nguyễn Thị Thanh Thảo - thaonguyen1096 - thaonguyen1096@gmail.com
+* [x] **1412520** - Nguyễn Hoàng Thi - thikhin96 - nghoangthi1@gmail.com 
+* [x] **1412503** - Nguyễn Thị Thanh Thảo - thaonguyen1096 - thaonguyen1096@gmail.com
 
 * URL: **URL hosting của đề tài**
 * Báo cáo: **https://udpt-2017.github.io/project-preciousteam/**
@@ -112,23 +112,44 @@ Liệt kê các API nhóm đã sử dụng được ở đây
 
 ## Chức năng đã thực hiện
 Các **yêu cầu chức năng**
+## Database
 * [x] Xây dựng và cài đặt cơ sở dữ liệu với postgres
-* [x] Trang chủ khách hàng được thiết kế sẽ bao gồm các trang: home, fashion, about, contact
+### Lập trình server
+#### MVC
 * [x] Website layout theo kiến trúc MVC , config, layout and partial
+* [x] Trang chủ khách hàng được thiết kế sẽ bao gồm các trang: home, fashion, about, contact
 * [x] Cho phép người dùng biết họ đang ở trang nào (sử dụng breadcrumb, highlight navigation bar,...)
 * [x] Trang chủ admin được thiết kế sẽ bao gồm các trang: dashboard, order list staff management, customer management, mailbox
 * [x] Xây dựng trang báo lỗi 401, 404, 500
+####Thao tác dữ liệu
+* [x] Thực hiện thỏa tác CRUD trên cơ sở dữ liệu
+	* [x] Tạo/đăng kí tài khoản
+	* [x] Đăng bài bán sản phẩm
+	* [x] Sửa thông tin cá nhân
+	* [x] Khóa người dùng
+#### Xử lý lỗi
+* [x] Báo lỗi trong cùng trang web: báo lỗi email trùng khi đăng nhập, báo lỗi mật khẩu sai,....
+* [x] Báo lỗi trong trang web riêng: 401, 404 và 500
+**Tương tác API khác**
 * [x] Cho phép người dùng đăng ký/đăng nhập bằng email
 * [x] Xác nhận đăng ký qua email
+
+### Lập trình client
+* [x] Kiểm tra dữ liệu form thêm/sửa danh mục và sản phẩm
+* [x] Kiểm tra form đăng ký, cập nhật tài khoản cá nhân
+* [x] Animation thông báo thêm/sửa danh mục thành công hay lỗi
+* [x] Ajax để thêm, sửa nhân viên, sản phẩm,...
+* [x] Dùng DOM, Jquery để ẩn hiện các button
+
+## Bảo mật
+* [x] Cho phép người dùng đăng nhập/đăng xuất
+* [x] Bảo vệ một số trang web khỏi những người chưa đăng nhập,  tự động chuyển đến trang đăng nhập
 * [x] Xây dựng tính năng phân loại người dùng(admin/staff/customer/...)
  	* [x] Không cho phép thao tác vào trang web khi không có quyền 
  	* [x] Thể hiện các chức năng khác nhau trên cùng giao diện khi người dùng có quyền khác nhau
  	* [x] Thể hiện lỗi khi không truy xuất được trang khi không có quyền (Lỗi 401)
-* [x] Kiểm tra dữ liệu form thêm/sửa danh mục và sản phẩm
-* [x] Báo lỗi trong cùng trang web
-* [x] Báo lỗi trong trang web riêng: 401, 404 và 500
-* [x] Animation thông báo thêm/sửa danh mục thành công
-* [x] Ajax để thêm, sửa nhân viên, sản phẩm,...
+
+
 
 
 
