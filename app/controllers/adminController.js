@@ -4,6 +4,7 @@ const User = require('../models/users.js');
 const adminController = {
 	index: function(req, res){
 		let user = req.user;
+
 			if (user == null) {
 				res.render('404',{
 					eTitle: '401',
@@ -21,7 +22,7 @@ const adminController = {
 					buttonValue:'Back to home'
 					});
 			}
-		else if(user.type==='0'){
+		else if(user.type===0){
 			res.render('admin/homeAdmin',{
 				layout: 'applicationAdmin',
 				active_dashboard: 'active',
@@ -29,7 +30,7 @@ const adminController = {
 				username: user.name,
 			});
 		}
-		else if(user.type === '1'){
+		else if(user.type === 1){
 			res.render('404',{
 				layout: 'applicationStaff',
 				username: user.name,

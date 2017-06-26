@@ -1,9 +1,10 @@
  $(document).ready(function() {
-$('#log-in').click(function(){
+$('#log-in').click(function(e){
+    e.preventDefault();
     var email = $('#email').val();
     var pass = $('#pass').val();
     login(email, pass);
-        return false;
+    return false;
 })
 
 login = function(email, pass){
@@ -12,6 +13,7 @@ login = function(email, pass){
         data: {"em": email, "password": pass},
         success: function(data){
             window.location = data;
+            alert(data);
         },
         error: function(jqXHR, exception) {
         var msg = '';
