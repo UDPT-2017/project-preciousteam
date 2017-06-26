@@ -13,7 +13,6 @@ login = function(email, pass){
         data: {"em": email, "password": pass},
         success: function(data){
             window.location = data;
-            alert(data);
         },
         error: function(jqXHR, exception) {
         var msg = '';
@@ -32,7 +31,7 @@ login = function(email, pass){
         } else {
             msg = 'Uncaught Error.\n' + jqXHR.responseText;
         }
-        alert(msg);
+        alert("You might mistype your password");
     }
     })
 

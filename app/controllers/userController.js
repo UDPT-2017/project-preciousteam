@@ -150,7 +150,8 @@ const userController  = {
 		Post.getPostUser(req.user.userid, function(err, product){
 			res.render('addDiscount',{
 				active_discount: 'active',
-				product: product
+				product: product,
+				user: req.user
 			});
 		});			
 		}
