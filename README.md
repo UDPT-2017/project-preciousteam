@@ -121,7 +121,7 @@ Các **yêu cầu chức năng**
 * [x] Cho phép người dùng biết họ đang ở trang nào (sử dụng breadcrumb, highlight navigation bar,...)
 * [x] Trang chủ admin được thiết kế sẽ bao gồm các trang: dashboard, order list staff management, customer management, mailbox
 * [x] Xây dựng trang báo lỗi 401, 404, 500
-####Thao tác dữ liệu
+#### Thao tác dữ liệu
 * [x] Thực hiện thỏa tác CRUD trên cơ sở dữ liệu
 	* [x] Tạo/đăng kí tài khoản
 	* [x] Đăng bài bán sản phẩm
@@ -130,7 +130,7 @@ Các **yêu cầu chức năng**
 #### Xử lý lỗi
 * [x] Báo lỗi trong cùng trang web: báo lỗi email trùng khi đăng nhập, báo lỗi mật khẩu sai,....
 * [x] Báo lỗi trong trang web riêng: 401, 404 và 500
-**Tương tác API khác**
+#### Tương tác API khác
 * [x] Cho phép người dùng đăng ký/đăng nhập bằng email
 * [x] Xác nhận đăng ký qua email
 
