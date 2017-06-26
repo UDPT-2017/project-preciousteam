@@ -38,12 +38,6 @@ Làm việc nhóm:
 	- Chờ bài đăng được duyệt
 	- Khi có người dùng đặt mua, có thông báo đến người đăng tin, người đăng sẽ duyệt đơn hàng, khi đó số lượng sản phẩm sẽ giảm xuống.
 	- Người đăng có thể cập nhật số lượng sản phẩm. Nếu hết hàng, số lượng = 0 thì người dùng k thể đặt hàng được nữa.
-
-* Quy trình chỉnh sửa bài đăng:
-  - Tìm bài đăng của mình
-  - Chọn chỉnh sửa
-  - Thay đổi thông tn
-  - Lưu thay đổi
   
 * Quy trình đặt mua:
 	- Đăng nhập. Nếu chưa có tài khoản thì phải đăng ký.
